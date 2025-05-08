@@ -64,7 +64,7 @@ export default function ListItem() {
       <div className="bg-amber-700 text-center">
             <Navbar />
             <input className="mt-[8rem] text-center bg-white/60 rounded-md hover:bg-amber-200 p-1" placeholder="Search" onChange={getInputSearch}></input> <button className="font-bold ml-2 bg-yellow-300 p-1 rounded-md hover:bg-yellow-500 hover:text-amber-50 transition-opacity active:scale-90 duration-200" onClick={handleSearch}>Search</button>
-            <main className="flex flex-row p-15 px-[12%] gap-5">
+            <main className="flex flex-row p-15 px-[12%] gap-5 text-start">
                 {/* section category */}
                 <CategoryList handleCategory = {handleCategory} />
                 {/* section card product */}

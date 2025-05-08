@@ -10,6 +10,9 @@ export default function CategoryList ({handleCategory}: CategoryFilterProps) {
                 <button className="p-1 text-gray-700 hover:bg-gray-100 focus:bg-emerald-500 focus:text-white" onClick={() => handleCategory("All")}>All</button>
                 <button className="p-1 text-gray-700 hover:bg-gray-100 focus:bg-emerald-500 focus:text-white" onClick={() => handleCategory("Electronics")}>Electronics</button>
                 <button className="p-1 text-gray-700 hover:bg-gray-100 focus:bg-emerald-500 focus:text-white" onClick={() => handleCategory("Clothes")}>Clothes</button>
+                <button className="p-1 text-gray-700 hover:bg-gray-100 focus:bg-emerald-500 focus:text-white" onClick={() => handleCategory("Furniture")}>Furniture</button>
+                <button className="p-1 text-gray-700 hover:bg-gray-100 focus:bg-emerald-500 focus:text-white" onClick={() => handleCategory("Shoes")}>Shoes</button>
+                <button className="p-1 text-gray-700 hover:bg-gray-100 focus:bg-emerald-500 focus:text-white" onClick={() => handleCategory("Miscellaneous")}>Miscellaneous</button>
             </div>
         </section>
     );
