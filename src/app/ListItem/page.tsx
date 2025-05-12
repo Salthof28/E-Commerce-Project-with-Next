@@ -25,7 +25,7 @@ export default function ListItem() {
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string>('');
     const [search, setSearch] = useState<string>('');
-    const searchParams:ReadonlyURLSearchParams = useSearchParams();
+    const searchParams: ReadonlyURLSearchParams = useSearchParams();
     const router: AppRouterInstance = useRouter();
     const [allproducts, setAllproducts] = useState<Product[]>([]);
 
@@ -42,7 +42,7 @@ export default function ListItem() {
             const categoryhome = searchParams.get('category') || 'All';
             // handleCategory(categoryhome);
             const filterProductfromHome: Product[] = data.filter(item => item.category.name.includes(categoryhome));
-            categoryhome == 'All' ? setProducts(data): setProducts(filterProductfromHome);;
+            categoryhome == 'All' ? setProducts(data): setProducts(filterProductfromHome);
             router.replace('/ListItem');
             
         } catch (err: unknown) {
@@ -67,6 +67,9 @@ export default function ListItem() {
         category == "All" ? setProducts(allproducts) : setProducts(categoryProducts);
         // setProducts(categoryProducts);
     }
+    const handleRouter = (id: number): void => {
+        router.push(`/ListItem/${id}`)
+    }
 
     if (loading) {
         return <div className="flex min-h-screen justify-center items-center"><h1 className="text-center text-4xl font-bold">Loading....</h1></div>;
@@ -84,7 +87,7 @@ export default function ListItem() {
                 {/* section card product */}
                 <section className="min-h-screen flex flex-row flex-wrap gap-[2rem] w-screen">
                     {products.map ((product) => (
-                        <CardProduct key={product.id} product={product} />
+                        <CardProduct key={product.id} product={product} handleRouter={handleRouter} />
                     ))}        
                 </section>
             </main>
