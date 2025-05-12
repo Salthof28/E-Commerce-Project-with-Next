@@ -30,6 +30,7 @@ export default function Home() {
     // console.log(category);
     router.push(`/ListItem?category=${category}`)
   }
+  
   const handleSlider = (direction: string): void => {
     console.log(direction);
     const containerSlider = sliderRef.current;
