@@ -23,7 +23,7 @@ export default function CardProduct ({ product, handleRouter }: CardProductProps
             <div className="p-3 flex flex-col justify-between min-h-[16rem] text-justify">
             <div>
                 <h1 className="text-md 2xl:text-lg font-bold text-start">{product.title}</h1>
-                <h3 className="mb-8 text-sm text-gray-400">Category: {product?.category?.name}</h3>
+                <p className="mb-8 text-sm text-gray-400">Category: {product?.category?.name}</p>
                 <p className="text-justify text-xs 2xl:text-base">{product?.description?.slice(0,100)}...</p>
             </div>
             <div className="text-center">
