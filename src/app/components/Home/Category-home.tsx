@@ -1,15 +1,8 @@
 'use client'
-type CategoryProduct = {
-    id: number;
-    name: string;
-    image: string;
-    slug: string;
-    creationAt: string;
-    updatedAt: string;
-  }
+import { Category } from "@/app/services/api";
 interface CategoryHome {
     gethandleRouter: (category: string) => void;
-    categoryProd: CategoryProduct
+    categoryProd: Category;
 }
 export default function CategoryHome ({gethandleRouter, categoryProd}: CategoryHome) {
     return (
@@ -21,5 +14,3 @@ export default function CategoryHome ({gethandleRouter, categoryProd}: CategoryH
         </div>
     );
 }
-
-// bg-[linear-gradient(rgba(184,74,0,0.2)_80%,rgb(184,74,0)),url('/uul.jpeg')]
