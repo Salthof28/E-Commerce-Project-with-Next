@@ -54,10 +54,6 @@ export default function ListItem() {
     const handleRouter = (id: number): void => {
         router.push(`/ListItem/${id}`)
     }
-
-    if (loading) {
-        return <div className="flex min-h-screen justify-center items-center"><h1 className="text-center text-4xl font-bold">Loading....</h1></div>;
-    }
     return (
       <div className="bg-amber-700 text-center overflow-x-hidden">
             <Navbar />
@@ -71,13 +67,17 @@ export default function ListItem() {
                     {/* section category */}
                     <CategoryList handleCategory = {handleCategory} />
                     {/* section card product */}
-                    <section className="min-h-screen flex flex-row flex-wrap gap-[2rem] w-[100%] lg:w-[52rem] xl:w-[100rem] max-lg:justify-center">
+                    <section className="relative min-h-screen flex flex-row flex-wrap gap-[2rem] w-[100%] lg:w-[52rem] xl:w-[100rem] max-lg:justify-center">
+                        {loading && (
+                            <div className="absolute flex w-full h-full justify-center items-center">
+                                <h1 className="text-lg lg:text-xl xl:text-2xl 2xl:text-4xl font-bold text-amber-50">Loading....</h1>
+                            </div>
+                        )}
                         {products.map ((product) => (
                             <CardProduct key={product.id} product={product} handleRouter={handleRouter} />
                         ))}        
                     </section>
                 </section>
-
             </main>
       </div>
     );
