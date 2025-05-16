@@ -26,7 +26,7 @@ export default function Navbar () {
 
     return (
         <div className="flex justify-center">
-            <header className= {`flex flex-col lg:flex-row w-[95vw] justify-between mt-3 bg-black/60 p-5 rounded-3xl fixed z-10 transition-transform duration-600 ease text-amber-50 ${show ? "translate-y-0" : "-translate-y-full"}`}>    
+            <header className= {`text-center flex flex-col lg:flex-row w-[95vw] justify-between mt-3 bg-black/60 p-5 rounded-3xl fixed z-10 transition-transform duration-600 ease text-amber-50 ${show ? "translate-y-0" : "-translate-y-full"}`}>    
                 {/* <h1>deShoper</h1> */}
                 <div className="w-full flex justify-between items-center lg:w-auto">
                     <h1>deShoper</h1>
