@@ -45,7 +45,7 @@ export default function HomeClient({ category }: HomeClient) {
   // console.log(imageHome);
 
   return (
-    <div className="text-center min-h-screen">
+    <div className="text-center min-h-screen overflow-x-hidden">
       <Navbar/>
       <main className="flex items-center flex-col">
         {/* section Home  */}

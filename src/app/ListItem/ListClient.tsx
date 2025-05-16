@@ -59,21 +59,25 @@ export default function ListItem() {
         return <div className="flex min-h-screen justify-center items-center"><h1 className="text-center text-4xl font-bold">Loading....</h1></div>;
     }
     return (
-      <div className="bg-amber-700 text-center">
+      <div className="bg-amber-700 text-center overflow-x-hidden">
             <Navbar />
             {/* Search section */}
-            <input className="mt-[8rem] text-center bg-white/60 rounded-md hover:bg-amber-200 p-1" placeholder="Search" onChange={getInputSearch}></input>
-            <button className="font-bold ml-2 bg-yellow-300 p-1 rounded-md hover:bg-yellow-500 hover:text-amber-50 transition-opacity active:scale-90 duration-200" onClick={handleSearch}>Search</button>
+            <input className="mt-[8rem] text-center bg-white/60 rounded-md hover:bg-amber-200 p-1 text-[0.8rem] xl:text-[1rem]" placeholder="Search" onChange={getInputSearch}></input>
+            <button className="font-bold ml-2 bg-yellow-300 p-1 rounded-md hover:bg-yellow-500 hover:text-amber-50 transition-opacity active:scale-90 duration-200 text-[0.8rem] xl:text-[1rem]" onClick={handleSearch}>Search</button>
             {/* Main Page */}
-            <main className="flex flex-row pt-15 px-[3rem] 2xl:px-[12rem] text-start justify-center gap-[2rem] w-screen">
-                {/* section category */}
-                <CategoryList handleCategory = {handleCategory} />
-                {/* section card product */}
-                <section className="min-h-screen flex flex-row flex-wrap gap-[2rem] w-[80%]">
-                    {products.map ((product) => (
-                        <CardProduct key={product.id} product={product} handleRouter={handleRouter} />
-                    ))}        
+            <main className="flex pt-15 justify-center items-center w-screen">
+                {/* Main Section */}
+                <section className="flex flex-row px-[0rem] lg:px-[1.5rem] xl:px-[7rem] 2xl:px-[22rem] text-start justify-center gap-[2rem] w-full">
+                    {/* section category */}
+                    <CategoryList handleCategory = {handleCategory} />
+                    {/* section card product */}
+                    <section className="min-h-screen flex flex-row flex-wrap gap-[2rem] w-[100%] lg:w-[52rem] xl:w-[100rem] max-lg:justify-center">
+                        {products.map ((product) => (
+                            <CardProduct key={product.id} product={product} handleRouter={handleRouter} />
+                        ))}        
+                    </section>
                 </section>
+
             </main>
       </div>
     );

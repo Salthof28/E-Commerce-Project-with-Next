@@ -50,7 +50,7 @@ export default function SingleProductRender ( { product, images }: SingleProduct
                         <p className="text-justify text-xs md:text-sm xl:text-xl">{product?.description}</p>
                     </div>
                     <div>
-                        <p className="text-xs md:text-sm xl:text-xl">${product?.price}</p>
+                        <p className="text-xs md:text-sm xl:text-xl mb-[1rem]">${product?.price}</p>
                         <BtnAddCart totalCheckout={totalCheckout} handleAddcart={handleAddcart} decreaseCart={decreaseCart} />
                     </div>
                 </section>
