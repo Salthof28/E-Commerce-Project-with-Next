@@ -31,7 +31,7 @@ export default function Navbar () {
                     <Link href="/ListItem">Item List</Link>
                 </nav>
                 <nav>
-                    <h1>Coming soon</h1>
+                    <Link href="/CheckOut">Cart</Link>
                 </nav>
             </header>
         </div>
