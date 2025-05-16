@@ -45,12 +45,12 @@ export default function SingleProductRender ( { product, images }: SingleProduct
                 {/* Detail Product Section */}
                 <section className="bg-amber-100 w-[16rem] md:w-[35rem] lg:w-[60rem] rounded-2xl p-[0.8rem] md:p-[1.5rem] xl:p-[3rem] text-center flex flex-col justify-between">
                     <div className="mb-[1rem] lg:mb-[2rem]">
-                        <h1 className="text-md md:text-2xl xl:text-3xl">{product?.title}</h1>
-                        <h3 className="mb-5 text-xs md:text-sm xl:text-xl">Category: {product?.category?.name}</h3>
-                        <p className="text-justify text-xs md:text-sm xl:text-xl">{product?.description}</p>
+                        <h1 className="text-md md:text-2xl xl:text-3xl text-black">{product?.title}</h1>
+                        <h3 className="mb-5 text-xs md:text-sm xl:text-xl text-black">Category: {product?.category?.name}</h3>
+                        <p className="text-justify text-xs md:text-sm xl:text-xl text-black">{product?.description}</p>
                     </div>
                     <div>
-                        <p className="text-xs md:text-sm xl:text-xl mb-[1rem]">${product?.price}</p>
+                        <p className="text-xs md:text-sm xl:text-xl mb-[1rem] text-black">${product?.price}</p>
                         <BtnAddCart totalCheckout={totalCheckout} handleAddcart={handleAddcart} decreaseCart={decreaseCart} />
                     </div>
                 </section>

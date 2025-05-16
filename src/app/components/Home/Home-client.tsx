@@ -54,7 +54,7 @@ export default function HomeClient({ category }: HomeClient) {
         }} >
           <h1 className="text-amber-50 pb-2 2xl:pb-10 text-md md:text-2xl xl:text-4xl 2xl:text-6xl"><span className="text-[2rem] md:text-[4rem] xl:text-[6rem] 2xl:text-[10rem]">Hurry Up</span> The Best Price</h1>
           <h2 className="text-amber-50 pb-4 2xl:pb-10 text-sm md:text-xl xl:text-2xl 2xl:text-4xl">Waiting For You</h2>
-          <button onClick={() => handleRouter('All')} className="bg-yellow-300 rounded-2xl shadow-lg hover:bg-yellow-500 hover:text-amber-50 active:scale-80 duration-200 text-md md:text-2xl xl:text-4xl p-3 flex flex-row items-center"><ArrowRight className="w-6 h-6 md:w-8 md:h-8 xl:w-12 xl:h-12" strokeWidth={4} /> Shop Now</button>
+          <button onClick={() => handleRouter('All')} className="bg-yellow-300 rounded-2xl shadow-lg hover:bg-yellow-500 hover:text-amber-50 active:scale-80 duration-200 text-md md:text-2xl xl:text-4xl p-3 flex flex-row items-center text-black"><ArrowRight className="w-6 h-6 md:w-8 md:h-8 xl:w-12 xl:h-12" strokeWidth={4} /> Shop Now</button>
         </section>
 
         {/* Section card slider category */}

@@ -29,14 +29,14 @@ export default function CheckOut () {
                     ))}
                     {cart.length < 1 && (
                     <div className="p-[2rem] flex flex-col items-center">
-                        <h2 className="text-[1.5rem] 2xl:text-[2rem]">Your cart is empty. Let’s fill it up with something awesome!</h2>
+                        <h2 className="text-[1.5rem] 2xl:text-[2rem] text-black">Your cart is empty. Let’s fill it up with something awesome!</h2>
                     </div>
                     )}
                     {cart.length > 0 && (
                     <div className="p-[2rem] flex flex-col items-center">
-                        <h2 className="text-[1rem] md:text-[1.5rem] 2xl:text-[2rem]">Total Quantity: {totalQuantity()}</h2>
-                        <h2 className="text-[1rem] md:text-[1.5rem] 2xl:text-[2rem] mb-[2rem]">Total Paid: ${totalPaid()}</h2>
-                        <button className="bg-emerald-500 p-2 rounded-md hover:bg-emerald-700 hover:text-amber-50 transition-opacity delay-200 active:scale-90 text-sm md:text-lg xl:text-3xl">Check Out</button>
+                        <h2 className="text-[1rem] md:text-[1.5rem] 2xl:text-[2rem] text-black">Total Quantity: {totalQuantity()}</h2>
+                        <h2 className="text-[1rem] md:text-[1.5rem] 2xl:text-[2rem] mb-[2rem] text-black">Total Paid: ${totalPaid()}</h2>
+                        <button className="bg-emerald-500 p-2 rounded-md hover:bg-emerald-700 hover:text-amber-50 transition-opacity delay-200 active:scale-90 text-sm md:text-lg xl:text-3xl text-black">Check Out</button>
                     </div>
                     )}      
                 </section>
