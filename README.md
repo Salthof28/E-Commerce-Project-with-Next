@@ -46,6 +46,7 @@ git clone https://github.com/revou-fsse-feb25/milestone-3-Salthof28.git
 ```sh
 cd milestone-3
 npm install
+npm run build
 npm start
 ```
 
