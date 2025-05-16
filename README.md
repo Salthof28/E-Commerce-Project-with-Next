@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# E-Commerce Website Documentation
 
-## Getting Started
+## Overview
+This is a modern e-commerce website built with **Next.js** that allows users to easily browse, search, and filter products by categories. Users can view detailed information about each product and manage their shopping cart by adding or removing items with a smooth and responsive user experience.
 
-First, run the development server:
+## Features Implemented
+- **Next.js Routing & Navigation**
+  - File-based routing with dynamic route pages (e.g., `[id].tsx`)
+  - Client-side navigation using `Link` from `next/link`
+  - Dynamic route parameter handling for product details
+  - Navigation between pages without full reloads for seamless UX
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Data Fetching**
+  - Static Site Generation (SSG) with `getStaticProps()`
+  - Server-Side Rendering (SSR) with `getServerSideProps()`
+  - Client-side data fetching with `useEffect()` and Fetch API
+  - Robust error handling and loading states management during data fetching
+
+- **UI & State Management**
+  - Clean and reusable React components with JSX syntax
+  - State management using `useState` and side effects with `useEffect`
+  - Passing and handling props effectively across components
+
+- **Additional Features**
+  - Product listing with category filters
+  - Search functionality for products
+  - Shopping cart management with add, remove, and quantity adjustment
+
+## Technologies Used
+- **Next.js** — React framework for server-side rendering and static site generation
+- **React** — UI library with hooks for state and lifecycle management
+- **TypeScript** — Type-safe JavaScript for robust development
+- **Tailwind CSS** — Utility-first CSS framework for rapid styling
+- **Fetch API** — Native web API for data fetching
+
+## Demo
+
+**Live Demo:** [deShopper](https://e-commerce-project-with-next.vercel.app/)
+
+## 📜 How to Use
+1. clone this repository:
+```sh
+git clone https://github.com/revou-fsse-feb25/milestone-3-Salthof28.git
+```
+2. Install next and run project
+```sh
+cd milestone-3
+npm install
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Author
+:bulb: Salman Althof
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
