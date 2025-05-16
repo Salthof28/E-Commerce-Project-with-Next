@@ -19,7 +19,7 @@ export default function CheckOut () {
         removeItem(product);
     }
     return (
-        <div className="bg-amber-700 min-h-screen">
+        <div className="bg-amber-700 min-h-screen text-center overflow-x-hidden">
             <Navbar />
             <main className="pt-[8rem] px-[1rem] md:px-[4rem] 2xl:px-[6rem] pb-[2rem]">
                 <h1 className="text-center text-amber-50 mb-[1rem] text-[1.5rem] mb:text-[2rem] lg:text-[3rem]">Checkout Boss</h1>
