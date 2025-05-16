@@ -31,7 +31,7 @@ export default function HomeClient({ category }: HomeClient) {
     const containerSlider = sliderRef.current;
     if(!containerSlider) return;
     const distanceScroll = 300;
-    direction === "left" ? containerSlider.scrollBy({left: -distanceScroll, behavior: "smooth"}) : containerSlider.scrollBy({left: distanceScroll, behavior: "smooth"});
+    containerSlider.scrollBy(direction === "left" ? {left: -distanceScroll, behavior: "smooth"} : {left: distanceScroll, behavior: "smooth"});
   }
 
   useEffect (() => {
@@ -47,16 +47,11 @@ export default function HomeClient({ category }: HomeClient) {
   return (
     <div className="text-center min-h-screen">
       <Navbar/>
-      {/* style={{
-        backgroundImage: `linear-gradient(rgba(0,0,0,0.5) 80%, rgb(184,74,0)), url(${imageHome[currentImage]})`,
-        }} */}
       <main className="flex items-center flex-col">
         {/* section Home  */}
         <section className="flex flex-col w-screen h-screen bg-cover bg-center justify-center items-start px-[2rem] md:px-[8rem] lg:px-[15rem] xl:px-[25rem] 2xl:px-[35rem]" style={{
         backgroundImage: `linear-gradient(rgba(0,0,0,0.5) 80%, rgb(184,74,0)), url(${imageHome[currentImage]})`,
         }} >
-          {/* <img className="absolute inset-0 w-full h-full object-cover" src="/uul.jpeg" /> */}
-          {/* <div className="absolute inset-0 w-full h-full bg-gradient-to-t from-amber-700/50 via-amber-700/0 to-atransparant"></div> */}
           <h1 className="text-amber-50 pb-2 2xl:pb-10 text-md md:text-2xl xl:text-4xl 2xl:text-6xl"><span className="text-[2rem] md:text-[4rem] xl:text-[6rem] 2xl:text-[10rem]">Hurry Up</span> The Best Price</h1>
           <h2 className="text-amber-50 pb-4 2xl:pb-10 text-sm md:text-xl xl:text-2xl 2xl:text-4xl">Waiting For You</h2>
           <button onClick={() => handleRouter('All')} className="bg-yellow-300 rounded-2xl shadow-lg hover:bg-yellow-500 hover:text-amber-50 active:scale-80 duration-200 text-md md:text-2xl xl:text-4xl p-3 flex flex-row items-center"><ArrowRight className="w-6 h-6 md:w-8 md:h-8 xl:w-12 xl:h-12" strokeWidth={4} /> Shop Now</button>

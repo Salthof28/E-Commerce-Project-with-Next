@@ -10,9 +10,8 @@ interface SingleProductRenderProps {
     images: string[];
 }
 export default function SingleProductRender ( { product, images }: SingleProductRenderProps ) {
-    // const [images, setImages] = useState<string[]>([]);
     const [currentImages, setCurrentImages] = useState<number>(0);
-    const {cart, addToCart, decReaseItem, removeItem} = useCart();
+    const {cart, addToCart, decReaseItem} = useCart();
     const [totalCheckout, setTotalCheckout] = useState<number>(0); 
     const slideRight = (): void => {
         setCurrentImages(prev => (prev + 1) % images.length);
@@ -29,7 +28,7 @@ export default function SingleProductRender ( { product, images }: SingleProduct
     useEffect(() => {
         // console.log(cart);
         const filterProduct: CartItem[] = cart.filter(item => item.product.id === product.id);
-        filterProduct.length > 0 ? setTotalCheckout(filterProduct[0].quantity) : setTotalCheckout(0);
+        setTotalCheckout(filterProduct.length > 0 ? filterProduct[0].quantity : 0)
         console.log(cart);
         
     }, [cart]);

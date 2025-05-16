@@ -10,16 +10,16 @@ export default function Navbar () {
         const handleScroll = () => {
             const currentScroll = window.scrollY;
 
-            currentScroll > lastPositionScroll.current && currentScroll > 50 ? setShow(false) : setShow(true); 
+            setShow(currentScroll > lastPositionScroll.current && currentScroll > 50 ? false : true)
 
             lastPositionScroll.current = currentScroll
-        }
+        };
 
         window.addEventListener('scroll', handleScroll);
         return () => {
             window.removeEventListener('scroll', handleScroll);
-        }
-    }, [])
+        };
+    }, []);
 
 
     return (
@@ -35,5 +35,5 @@ export default function Navbar () {
                 </nav>
             </header>
         </div>
-    )
+    );
 }

@@ -1,80 +1,10 @@
-'use client'
-import { useState, useEffect, ChangeEvent } from "react";
-import Navbar from "../components/navbar";
-import CardProduct from "../components/ListItem/card-products";
-import CategoryList from "../components/ListItem/Category-list";
-import { ReadonlyURLSearchParams, useSearchParams } from "next/navigation";
-import { useRouter } from "next/navigation";
-import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
-import { Product } from "../services/api";
-import { fetchDataProd } from "../services/api";
+import React, { Suspense } from 'react';
+import ListClient from './ListClient';
 
-export default function ListItem() {
-    const [products, setProducts] = useState<Product[]>([]);
-    const [loading, setLoading] = useState<boolean>(false);
-    const [error, setError] = useState<string>('');
-    const [search, setSearch] = useState<string>('');
-    const searchParams: ReadonlyURLSearchParams = useSearchParams();
-    const router: AppRouterInstance = useRouter();
-    const [allproducts, setAllproducts] = useState<Product[]>([]);
-
-    const fetchDataProducts = async (): Promise<void> => {
-        try {
-            setLoading(true);
-            const data: Product[] = await fetchDataProd(); 
-            setAllproducts(data); // for collect all product data
-            setLoading(false);
-            // for filter from home and cupdate current product
-            const categoryhome = searchParams.get('category') || 'All';
-            const filterProductfromHome: Product[] = data.filter(item => item.category.name.includes(categoryhome));
-            categoryhome == 'All' ? setProducts(data): setProducts(filterProductfromHome);
-            router.replace('/ListItem');
-        } catch (err: unknown) {
-            err instanceof Error ? setError(err.message) : setError('An unknown error occurred');
-            console.log(error);
-        }
-    }
-    useEffect (() => {
-        fetchDataProducts();
-    }, [])
-    // console.log(products)
-    const getInputSearch = (e:ChangeEvent<HTMLInputElement>) => {
-        setSearch(e.target.value)
-    }
-    const handleSearch = () => {
-        const filterProducts: Product[] = allproducts.filter(item => item.title.includes(search));
-        search == "" ? setProducts(allproducts) :  setProducts(filterProducts);
-    }
-    const handleCategory = (category: string) => {
-        console.log(category);
-        const categoryProducts: Product[] = allproducts.filter(item => item.category.name.includes(category));
-        category == "All" ? setProducts(allproducts) : setProducts(categoryProducts);
-        // setProducts(categoryProducts);
-    }
-    const handleRouter = (id: number): void => {
-        router.push(`/ListItem/${id}`)
-    }
-
-    if (loading) {
-        return <div className="flex min-h-screen justify-center items-center"><h1 className="text-center text-4xl font-bold">Loading....</h1></div>;
-    }
-    return (
-      <div className="bg-amber-700 text-center">
-            <Navbar />
-            {/* Search section */}
-            <input className="mt-[8rem] text-center bg-white/60 rounded-md hover:bg-amber-200 p-1" placeholder="Search" onChange={getInputSearch}></input>
-            <button className="font-bold ml-2 bg-yellow-300 p-1 rounded-md hover:bg-yellow-500 hover:text-amber-50 transition-opacity active:scale-90 duration-200" onClick={handleSearch}>Search</button>
-            {/* Main Page */}
-            <main className="flex flex-row pt-15 px-[3rem] 2xl:px-[12rem] text-start justify-center gap-[2rem] w-screen">
-                {/* section category */}
-                <CategoryList handleCategory = {handleCategory} />
-                {/* section card product */}
-                <section className="min-h-screen flex flex-row flex-wrap gap-[2rem] w-[80%]">
-                    {products.map ((product) => (
-                        <CardProduct key={product.id} product={product} handleRouter={handleRouter} />
-                    ))}        
-                </section>
-            </main>
-      </div>
-    );
-  }
+export default function Page() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ListClient />
+    </Suspense>
+  );
+}
