@@ -2,8 +2,15 @@ import Navbar from "@/app/components/navbar";
 import SingleProductRender from "@/app/components/ListItem/single-product-render";
 import { Product } from "@/app/services/api";
 import { fetchDataSingProd } from "@/app/services/api";
-export default async function SingleProduct ({ params }: { params: { id: string } }) {
-    const { id }: {id: string} = await params;
+interface Params {
+    params: Promise<{ id: string }>
+}
+export const dynamic = 'force-dynamic';
+export default async function SingleProduct ({ params }: Params ) {
+    // const { id } = params;
+    const resolvedParams = await params;
+    const id = resolvedParams.id;
+    // const id = params.id;
     // const response: Product = await fetchDataSingProd(id);
     const product: Product = await fetchDataSingProd(id);
     const images: string[] = product.images;
