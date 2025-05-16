@@ -1,4 +1,4 @@
-# E-Commerce Website Documentation
+# Milestone-3
 
 ## Overview
 This is a modern e-commerce website built with **Next.js** that allows users to easily browse, search, and filter products by categories. Users can view detailed information about each product and manage their shopping cart by adding or removing items with a smooth and responsive user experience.
