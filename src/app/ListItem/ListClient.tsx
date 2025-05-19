@@ -6,23 +6,27 @@ import CategoryList from "../components/ListItem/Category-list";
 import { ReadonlyURLSearchParams, useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
-import { fetchFilterCatProd, Product } from "../services/api";
-import { fetchDataProd } from "../services/api";
+import { Category, fetchFilterCatProd, Product } from "../services/api";
+import { fetchDataProd, fetchDataCat } from "../services/api";
 
 export default function ListItem() {
     const [products, setProducts] = useState<Product[]>([]);
+    const [category, setCategory] = useState<Category[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string>('');
     const [search, setSearch] = useState<string>('');
     const searchParams: ReadonlyURLSearchParams = useSearchParams();
     const categoryhome = searchParams.get('category') || 'All';
+    const activeCat: string = categoryhome;
     const router: AppRouterInstance = useRouter();
 
     const fetchDataProducts = async (): Promise<void> => {
         try {
             setLoading(true);
-            const data: Product[] = categoryhome === 'All' ? await fetchDataProd() : await fetchFilterCatProd(categoryhome); 
-            setProducts(data);
+            const dataProd: Product[] = categoryhome === 'All' ? await fetchDataProd() : await fetchFilterCatProd(categoryhome);
+            const dataCat: Category[] = await fetchDataCat() ;
+            setCategory(dataCat); 
+            setProducts(dataProd);
             setLoading(false);
         } catch (err: unknown) {
             setError(err instanceof Error ? err.message : 'An unknown error occurred')
@@ -57,19 +61,15 @@ export default function ListItem() {
                 {/* Main Section */}
                 <section className="flex flex-row px-[0rem] lg:px-[1.5rem] xl:px-[7rem] 2xl:px-[22rem] text-start justify-center gap-[2rem] w-full">
                     {/* section category */}
-                    <CategoryList handleCategory = {handleCategory} />
-                    {/* <section className="p-2 w-[9rem] xl:w-[18rem] 2xl:w-[16rem] bg-amber-50 rounded-2xl h-full text-start hidden lg:block">
+                    <section className="p-2 w-[9rem] xl:w-[18rem] 2xl:w-[16rem] bg-amber-50 rounded-2xl h-full text-start hidden lg:block">
                     <h2 className="text-[0.8rem] xl:text-[1rem] text-black font-bold mb-[1rem]">Category Product</h2>
                     <div className="flex flex-col items-start">
-                        <button className="p-1 text-black hover:bg-gray-100 focus:bg-emerald-500 focus:text-white text-[0.8rem] xl:text-[1rem]" onClick={() => handleCategory("All")}>All</button>
-                        <button className="p-1 text-black hover:bg-gray-100 focus:bg-emerald-500 focus:text-white text-[0.8rem] xl:text-[1rem]" onClick={() => handleCategory("Electronics")}>Electronics</button>
-                        <button className="p-1 text-black hover:bg-gray-100 focus:bg-emerald-500 focus:text-white text-[0.8rem] xl:text-[1rem]" onClick={() => handleCategory("Clothes")}>Clothes</button>
-                        <button className="p-1 text-black hover:bg-gray-100 focus:bg-emerald-500 focus:text-white text-[0.8rem] xl:text-[1rem]" onClick={() => handleCategory("Furniture")}>Furniture</button>
-                        <button className="p-1 text-black hover:bg-gray-100 focus:bg-emerald-500 focus:text-white text-[0.8rem] xl:text-[1rem]" onClick={() => handleCategory("Shoes")}>Shoes</button>
-                        <button className="p-1 text-black hover:bg-gray-100 focus:bg-emerald-500 focus:text-white text-[0.8rem] xl:text-[1rem]" onClick={() => handleCategory("Miscellaneous")}>Miscellaneous</button>
+                        <button className={`p-1 hover:bg-emerald-400 ${activeCat === "All" ? 'bg-emerald-500' : 'bg-amber-50'} ${activeCat === "All" ? 'text-white' : 'text-black'} text-[0.8rem] xl:text-[1rem]`} onClick={() => handleCategory("All")}>All</button>
+                        {category.map ((cat) => (
+                            <CategoryList key={cat.id} handleCategory = {handleCategory} category={cat} activeCat={activeCat} />
+                        ))}
                     </div>
-                    </section> */}
-                    
+                    </section>
                     {/* section card product */}
                     <section className="relative min-h-screen flex flex-row flex-wrap gap-[2rem] w-[100%] lg:w-[52rem] xl:w-[100rem] max-lg:justify-center">
                         {loading && (
