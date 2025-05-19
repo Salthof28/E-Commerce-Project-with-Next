@@ -8,11 +8,11 @@ export default function CategoryList ({handleCategory}: CategoryFilterProps) {
             <h2 className="text-[0.8rem] xl:text-[1rem] text-black font-bold mb-[1rem]">Category Product</h2>
             <div className="flex flex-col items-start">
                 <button className="p-1 text-black hover:bg-gray-100 focus:bg-emerald-500 focus:text-white text-[0.8rem] xl:text-[1rem]" onClick={() => handleCategory("All")}>All</button>
-                <button className="p-1 text-black hover:bg-gray-100 focus:bg-emerald-500 focus:text-white text-[0.8rem] xl:text-[1rem]" onClick={() => handleCategory("Electronics")}>Electronics</button>
-                <button className="p-1 text-black hover:bg-gray-100 focus:bg-emerald-500 focus:text-white text-[0.8rem] xl:text-[1rem]" onClick={() => handleCategory("Clothes")}>Clothes</button>
-                <button className="p-1 text-black hover:bg-gray-100 focus:bg-emerald-500 focus:text-white text-[0.8rem] xl:text-[1rem]" onClick={() => handleCategory("Furniture")}>Furniture</button>
-                <button className="p-1 text-black hover:bg-gray-100 focus:bg-emerald-500 focus:text-white text-[0.8rem] xl:text-[1rem]" onClick={() => handleCategory("Shoes")}>Shoes</button>
-                <button className="p-1 text-black hover:bg-gray-100 focus:bg-emerald-500 focus:text-white text-[0.8rem] xl:text-[1rem]" onClick={() => handleCategory("Miscellaneous")}>Miscellaneous</button>
+                <button className="p-1 text-black hover:bg-gray-100 focus:bg-emerald-500 focus:text-white text-[0.8rem] xl:text-[1rem]" onClick={() => handleCategory("electronics")}>Electronics</button>
+                <button className="p-1 text-black hover:bg-gray-100 focus:bg-emerald-500 focus:text-white text-[0.8rem] xl:text-[1rem]" onClick={() => handleCategory("clothes")}>Clothes</button>
+                <button className="p-1 text-black hover:bg-gray-100 focus:bg-emerald-500 focus:text-white text-[0.8rem] xl:text-[1rem]" onClick={() => handleCategory("furniture")}>Furniture</button>
+                <button className="p-1 text-black hover:bg-gray-100 focus:bg-emerald-500 focus:text-white text-[0.8rem] xl:text-[1rem]" onClick={() => handleCategory("shoes")}>Shoes</button>
+                <button className="p-1 text-black hover:bg-gray-100 focus:bg-emerald-500 focus:text-white text-[0.8rem] xl:text-[1rem]" onClick={() => handleCategory("miscellaneous")}>Miscellaneous</button>
             </div>
         </section>
     );
