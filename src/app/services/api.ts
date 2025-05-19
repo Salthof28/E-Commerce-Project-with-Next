@@ -21,6 +21,10 @@ export async function fetchDataProd (): Promise<Product[]> {
     const response: Response = await fetch(`${API_BASE_URL}/products`)
     return response.json();
 }
+export async function fetchFilterCatProd (slug: string): Promise<Product[]> {
+    const response: Response = await fetch(`${API_BASE_URL}/products/?categorySlug=${slug}`)
+    return response.json();
+}
 // fetching data category
 export async function fetchDataCat (): Promise<Category[]> {
     const response: Response = await fetch(`${API_BASE_URL}/categories`)
