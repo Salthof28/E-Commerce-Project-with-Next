@@ -61,7 +61,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         return total;
     }
     
-
+    // cartContext contain all variabel and function in function
     return (
         <cartContext.Provider value={{cart, addToCart, decReaseItem, removeItem, totalPaid, totalQuantity}}>
             {children}
@@ -69,6 +69,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     );
 }
 
+// for simple use in all page
 export const useCart = (): CartContextType => {
     const context = useContext(cartContext);
     if (!context) throw new Error('useCart must be used within CartProvider');
