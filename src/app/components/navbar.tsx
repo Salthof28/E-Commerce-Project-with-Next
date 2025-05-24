@@ -39,6 +39,7 @@ export default function Navbar () {
                 </div>                
                 <nav className={`lg:flex flex-col lg:flex-row max-lg:mb-[1rem] gap-[1rem] lg:gap-[2rem] ${menuOpen ? "flex" : "hidden"} items-center`}>
                     <Link href="/">Home</Link>
+                    <Link href="/login"><img src="no-img-profile.png" className="w-[2rem]"/></Link>
                     <Link href="/ListItem">Item List</Link>
                 </nav>
                 <nav className={`lg:flex items-center justify-center ${menuOpen ? "flex" : "hidden"}`}>
