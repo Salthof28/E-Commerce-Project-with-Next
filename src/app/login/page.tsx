@@ -65,7 +65,7 @@ export default function login () {
                         <input type="email" placeholder="email@mail.com" className="border p-[0.2rem] rounded-[0.6rem]" onChange={mail => setEmail(mail.target.value)}/>
                         <input type="password" placeholder="Passsword" className="border p-[0.2rem] rounded-[0.6rem]" onChange={pass => setPassword(pass.target.value)}/>
                         <button type="submit" className="bg-emerald-500 rounded-[0.4rem] hover:bg-emerald-700 hover:text-white active:scale-95 duration-200" disabled={loading}>Sign In</button>
-                        <button className="bg-emerald-500 rounded-[0.4rem] hover:bg-emerald-700 hover:text-white active:scale-95 duration-200" disabled={loading} onClick={() => router.push("/register")}>Create Account</button>
+                        <button type="button" className="bg-emerald-500 rounded-[0.4rem] hover:bg-emerald-700 hover:text-white active:scale-95 duration-200" disabled={loading} onClick={() => router.push("/register")}>Create Account</button>
                     </form>
                 )}
                 {loading && (
