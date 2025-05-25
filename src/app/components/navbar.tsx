@@ -30,7 +30,7 @@ export default function Navbar () {
             <header className= {`text-center flex flex-col lg:flex-row w-[95vw] justify-between mt-3 bg-black/60 p-5 rounded-3xl fixed z-10 transition-transform duration-600 ease text-amber-50 ${show ? "translate-y-0" : "-translate-y-full"}`}>    
                 {/* <h1>deShoper</h1> */}
                 <div className="w-full flex justify-between items-center lg:w-auto">
-                    <img src='deShoper.png' className="w-[6rem]" />
+                    <img src='/deShoper.png' className="w-[6rem]" />
                     <button className="lg:hidden text-amber-50 focus:outline-none" onClick={() => setMenuOpen(!menuOpen)}>
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path strokeLinecap="round" strokeLinejoin="round" d={menuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
@@ -39,7 +39,7 @@ export default function Navbar () {
                 </div>                
                 <nav className={`lg:flex flex-col lg:flex-row max-lg:mb-[1rem] gap-[1rem] lg:gap-[2rem] ${menuOpen ? "flex" : "hidden"} items-center`}>
                     <Link href="/">Home</Link>
-                    <Link href="/login"><img src="no-img-profile.png" className="w-[2rem]"/></Link>
+                    <Link href="/login"><img src="/no-img-profile.png" className="w-[2rem]"/></Link>
                     <Link href="/ListItem">Item List</Link>
                 </nav>
                 <nav className={`lg:flex items-center justify-center ${menuOpen ? "flex" : "hidden"}`}>
