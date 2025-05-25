@@ -1,26 +1,6 @@
 // import NextAuth from "next-auth";
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-// import { signIn } from "next-auth/react";
-
-
-
-// const users = [
-//   {
-//     id: 1,
-//     name: "John Doe",
-//     email: "john@example.com",
-//     password: "password123",
-//     role: "user",
-//   },
-//   {
-//     id: 2,
-//     name: "Admin User",
-//     email: "admin@example.com",
-//     password: "admin123",
-//     role: "admin",
-//   },
-// ];
 
 export const authOptions: NextAuthOptions = {
     session: {
@@ -41,18 +21,6 @@ export const authOptions: NextAuthOptions = {
                     return null
                 }
                 else {
-                    // const { email, password } = credentials as {
-                    //     email: string,
-                    //     password: string
-                    // };
-
-                    // const user: any = users.find((user) => user.email === credentials.email && user.password === credentials.password);
-                    // if (user && user.password === credentials.password) {
-                    //     return user
-                    // }
-                    // else {
-                    //     return null;
-                    // }
                     try{
                         // auth login
                         const response = await fetch("https://api.escuelajs.co/api/v1/auth/login", {
@@ -81,6 +49,7 @@ export const authOptions: NextAuthOptions = {
                             id: profile.id,
                             name: profile.name,
                             email: profile.email,
+                            avatar: profile.avatar,
                             role: profile.role, // misal default role, kamu bisa ubah sesuai isi profile
                             accessToken: data.access_token,
                         }
@@ -97,17 +66,21 @@ export const authOptions: NextAuthOptions = {
     callbacks: {
         async jwt({ token, user }) {
             if (user) {
+                token.id = user.id;
                 token.email = user.email;
                 token.role = user.role;
+                token.avatar = user.avatar;
                 token.accessToken = user.accessToken;
             }
             return token;
         },
         async session ({ session, token }) {
             if(token) {
-                session.user.email = token.email as string;
-                session.user.role = token.role as string;
-                session.accessToken = token.accessToken as string;
+                session.user.id = token.id;
+                session.user.email = token.email;
+                session.user.role = token.role;
+                session.user.avatar = token.avatar;
+                session.accessToken = token.accessToken;
             }
             return session
         }
