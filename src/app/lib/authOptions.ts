@@ -49,6 +49,7 @@ export const authOptions: NextAuthOptions = {
                             id: profile.id,
                             name: profile.name,
                             email: profile.email,
+                            password: profile.password,
                             avatar: profile.avatar,
                             role: profile.role, // misal default role, kamu bisa ubah sesuai isi profile
                             accessToken: data.access_token,
@@ -68,6 +69,7 @@ export const authOptions: NextAuthOptions = {
             if (user) {
                 token.id = user.id;
                 token.email = user.email;
+                token.password = user.password;
                 token.role = user.role;
                 token.avatar = user.avatar;
                 token.accessToken = user.accessToken;
@@ -78,6 +80,7 @@ export const authOptions: NextAuthOptions = {
             if(token) {
                 session.user.id = token.id;
                 session.user.email = token.email;
+                session.user.password = token.password
                 session.user.role = token.role;
                 session.user.avatar = token.avatar;
                 session.accessToken = token.accessToken;
