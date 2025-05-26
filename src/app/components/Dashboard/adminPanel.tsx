@@ -28,7 +28,7 @@ export default function AdminPanel ({ session }: AdminPanelProps) {
             href: '/dashboard/users',
             icon: (<Users />)
         },
-    ] 
+    ];
     return (
         <header className="text-[rgb(240,230,226)] bg-[#32190c6b] p-[1rem] h-screen">
             <h1 className="text-[1.5rem] font-bold">Admin Panel</h1>
@@ -40,10 +40,13 @@ export default function AdminPanel ({ session }: AdminPanelProps) {
                     </Link>
                 ))}
             </div>
-            <div className="flex flex-col items-center">
-                <div>
-                    <div><p>{session?.user?.name}</p></div>
-                    <p>{}</p>
+            <div className="flex flex-col">
+                <div className="flex flex-row items-center gap-[0.5rem] mb-[1rem]">
+                    <p className="flex justify-center items-center bg-indigo-900 p-[0.2rem] rounded-[50%] w-[2.5rem] h-[2.5rem]">{session?.user?.name?.charAt(0).toUpperCase()}</p>
+                    <div className="flex flex-col">
+                        <p>{session?.user?.name}</p>
+                        <span className="text-[0.8rem]">{session?.user?.email}</span>
+                    </div>
                 </div>
                 <button onClick={() => signOut({callbackUrl: "/login"})} className="bg-emerald-500 p-[0.5rem] rounded-[0.4rem]">Sign Out</button>
             </div>
