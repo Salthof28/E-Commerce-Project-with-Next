@@ -1,18 +1,20 @@
 'use client'
-import { useSession, signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
+import useAuthCustomer from "@/app/hooks/useAuthCustomer";
 import Navbar from "@/app/components/navbar";
 import React, { useState, useEffect } from "react";
 
 export default function editPass () {
-    const { data: session } = useSession();
+    // const { data: session } = useSession();
+    // custom hook customer authenticated
+    const { session, router } = useAuthCustomer()
     const [statusEdit, setStatusEdit] = useState<string>("Processing ....");
     const [loading, setLoading] = useState<boolean>(false);
     const [formData, setFormData] = useState({
         oldPassword: "",
         newPassword: "",
     })
-    const router = useRouter();
+    // const router = useRouter();
     // delay process edit data
     useEffect(() => {
         const timeProcess = setTimeout (() => {

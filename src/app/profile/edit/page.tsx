@@ -1,13 +1,16 @@
 'use client'
-import { signIn, useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
+import useAuthCustomer from "@/app/hooks/useAuthCustomer";
+// import { useRouter } from "next/navigation";
 // import { useEffect } from "react";
 import Navbar from "@/app/components/navbar";
 import React, { useState, useEffect } from "react";
 
 
 export default function editProfile () {
-        const { data: session } = useSession();
+        // const { data: session } = useSession();
+        // custom hook customer authenticated
+        const { session, router } = useAuthCustomer()
         const [statusEdit, setStatusEdit] = useState<string>("Processing ....");
         const [loading, setLoading] = useState<boolean>(false);
         const [formData, setFormData] = useState({
@@ -15,7 +18,8 @@ export default function editProfile () {
             email: session?.user.email,
             avatar: session?.user.avatar
         })
-        const router = useRouter();
+        
+        // const router = useRouter();
         // if page refresh, input still content data profile
         useEffect(() => {
             if (session?.user) {

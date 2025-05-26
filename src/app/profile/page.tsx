@@ -1,25 +1,12 @@
 'use client'
 import { signOut, useSession } from "next-auth/react";
-import { useRouter } from "next/navigation"
-import { useEffect } from "react";
 import Navbar from "../components/navbar";
 import { User, Mail } from "lucide-react";
+import useAuthCustomer from "../hooks/useAuthCustomer";
 
 export default function profile () {
-    const { data: session, status } = useSession();
-    const router = useRouter();
-    // check status authenticated
-    useEffect (() => {
-        if(status === "unauthenticated"){
-            router.push('/login');
-        }
-        // throw to dashboard page if role is admin
-        if(session?.user?.role === 'admin'){
-            router.push('/dashboard');
-        }
-    }, [router, status])
-    console.log(session);
-
+    // custom hook customer authenticated
+    const { session, router } = useAuthCustomer()
     return (
         <div className="bg-amber-700 overflow-x-hidden min-h-screen">
             <Navbar />
