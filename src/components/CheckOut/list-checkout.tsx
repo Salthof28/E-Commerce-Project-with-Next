@@ -1,5 +1,5 @@
 import { CartItem } from "@/app/context/Cart-context";
-import { Product } from "@/services/api";
+import { Product } from "@/types/interfaces";
 import { Trash2 } from "lucide-react";
 
 interface ListCheckOut {

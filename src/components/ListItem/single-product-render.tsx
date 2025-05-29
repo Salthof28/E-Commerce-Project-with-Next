@@ -1,7 +1,7 @@
 'use client'
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
-import { Product } from "@/services/api";
+import { Product } from "@/types/interfaces";
 import { CartItem, useCart } from "@/app/context/Cart-context";
 import BtnAddCart from "./btnAdd-cart";
 

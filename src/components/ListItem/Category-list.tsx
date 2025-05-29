@@ -1,4 +1,4 @@
-import { Category } from "@/services/api";
+import { Category } from "@/types/interfaces";
 
 interface CategoryFilterProps {
     handleCategory: (category: string) => void;

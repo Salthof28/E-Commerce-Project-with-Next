@@ -1,4 +1,5 @@
-import { Category, Product } from "@/services/api";
+
+import { Category, Product, FormDataProduct } from "@/types/interfaces";
 import { useEffect, useState } from "react";
 
 interface ProductFormProps {
