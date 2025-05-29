@@ -12,7 +12,8 @@ export interface CartContextType{
     decReaseItem: (product: Product) => void;
     removeItem: (product: Product) => void;
     totalPaid: () => number;
-    totalQuantity: () => number
+    totalQuantity: () => number;
+    checkout: () => void
 }
 
 export const cartContext = createContext<CartContextType | undefined>(undefined)
@@ -60,10 +61,14 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         const total = cart.reduce((accumulator, currentValue): number => accumulator + currentValue.quantity, 0)
         return total;
     }
-    
+    // for checkout
+    const checkout = ():void => {
+        setCart([]);
+        localStorage.removeItem('cart');
+    }
     // cartContext contain all variabel and function in function
     return (
-        <cartContext.Provider value={{cart, addToCart, decReaseItem, removeItem, totalPaid, totalQuantity}}>
+        <cartContext.Provider value={{cart, addToCart, decReaseItem, removeItem, totalPaid, totalQuantity, checkout}}>
             {children}
         </cartContext.Provider>
     );
