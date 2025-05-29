@@ -1,4 +1,3 @@
-
 import { Category, Product, FormDataProduct } from "@/types/interfaces";
 import { useEffect, useState } from "react";
 
