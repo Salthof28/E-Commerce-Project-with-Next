@@ -1,6 +1,6 @@
 'use client'
 import Navbar from "@/components/navbar";
-import { Product } from "@/services/api";
+import { Product } from "@/types/interfaces";
 import { CartItem, useCart } from "@/app/context/Cart-context";
 import ListCheckOut from "@/components/CheckOut/list-checkout";
 export default function CheckOut () {

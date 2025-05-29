@@ -6,7 +6,8 @@ import CategoryList from "@/components/ListItem/Category-list";
 import { ReadonlyURLSearchParams, useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
-import { Category, fetchFilterCatProd, Product } from "../../services/api";
+import { fetchFilterCatProd } from "../../services/api";
+import { Category, Product } from "@/types/interfaces";
 import { fetchDataProd, fetchDataCat } from "../../services/api";
 
 export default function ListItem() {

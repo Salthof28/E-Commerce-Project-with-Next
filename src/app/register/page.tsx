@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from "react";
 import Navbar from "@/components/navbar";
-import { Users } from "../../services/api";
+import { Users } from "@/types/interfaces";
 import { useRouter } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";

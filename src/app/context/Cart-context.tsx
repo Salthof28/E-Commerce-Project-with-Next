@@ -1,5 +1,5 @@
 'use client'
-import { Product } from "@/services/api";
+import { Product } from "@/types/interfaces";
 import { createContext ,ReactNode, useState, useContext, useEffect } from "react";
 
 export interface CartItem {

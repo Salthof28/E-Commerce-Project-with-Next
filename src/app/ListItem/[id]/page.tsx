@@ -1,6 +1,6 @@
 import Navbar from "@/components/navbar";
 import SingleProductRender from "@/components/ListItem/single-product-render";
-import { Product } from "@/services/api";
+import { Product } from "@/types/interfaces";
 import { fetchDataSingProd } from "@/services/api";
 interface Params {
     params: Promise<{ id: string }>

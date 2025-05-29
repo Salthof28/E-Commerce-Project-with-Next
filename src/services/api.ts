@@ -1,28 +1,4 @@
-
-export interface Users {
-    id: number,
-    email: string,
-    password: string,
-    name: string,
-    role: string,
-    avatar: string,
-}
-export interface Category {
-    id: number;
-    name: string;
-    image: string;
-    slug: string;
-    creationAt: string;
-    updatedAt: string;
-}
-export interface Product {
-    id: number;
-    title: string;
-    price: number;
-    description: string;
-    images: string[];
-    category: Category;
-}
+import { Users, Category, Product } from "@/types/interfaces";
 
 const API_BASE_URL = 'https://api.escuelajs.co/api/v1'
 // fetching data products
