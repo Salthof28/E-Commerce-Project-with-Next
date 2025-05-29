@@ -10,7 +10,7 @@ import ProductForm from "@/components/Dashboard/ProductForm";
 import HeaderTable from "@/components/Dashboard/HeaderTable";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-export default function usersPage () {
+export default function productHandlePage () {
     const { session } = useAuthAdmin();
     const [products, setProducts] = useState<Product[]>([]);
     const [category, setCategory] = useState<Category[]>([]);
