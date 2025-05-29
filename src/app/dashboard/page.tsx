@@ -15,7 +15,7 @@ export default function dashboard () {
                     <AdminPanel session={session} />
                 </section>
                 {/* for content */}
-                <section className="w-[85%] p-[2rem]">
+                <section className="w-[85%] p-[2rem] px-[2rem] xl:px-[4rem] 2xl:px-[20rem]">
                     <h1>PAGE DASHBOARD</h1>
                     <h1>{session?.user?.name}</h1>
                     <h1>{session?.user?.email}</h1>
