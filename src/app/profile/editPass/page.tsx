@@ -1,7 +1,7 @@
 'use client'
 import { signIn } from "next-auth/react";
-import useAuthCustomer from "@/app/hooks/useAuthCustomer";
-import Navbar from "@/app/components/navbar";
+import useAuthCustomer from "@/hooks/useAuthCustomer";
+import Navbar from "@/components/navbar";
 import React, { useState, useEffect } from "react";
 
 export default function editPass () {

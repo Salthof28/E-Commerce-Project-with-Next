@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from "react";
-import Navbar from "../components/navbar";
+import Navbar from "@/components/navbar";
 import { useRouter, useSearchParams } from "next/navigation";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { signIn } from "next-auth/react";

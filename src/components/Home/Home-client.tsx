@@ -6,7 +6,7 @@ import Navbar from "../navbar";
 import { useRouter } from "next/navigation";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { Category } from "@/app/services/api";
+import { Category } from "@/services/api";
 interface HomeClient {
   category: Category[]
 }

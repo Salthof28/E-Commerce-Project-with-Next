@@ -1,7 +1,7 @@
-import Navbar from "@/app/components/navbar";
-import SingleProductRender from "@/app/components/ListItem/single-product-render";
-import { Product } from "@/app/services/api";
-import { fetchDataSingProd } from "@/app/services/api";
+import Navbar from "@/components/navbar";
+import SingleProductRender from "@/components/ListItem/single-product-render";
+import { Product } from "@/services/api";
+import { fetchDataSingProd } from "@/services/api";
 interface Params {
     params: Promise<{ id: string }>
 }

@@ -1,7 +1,7 @@
 'use client'
-import useAuthAdmin from "@/app/hooks/useAuthAdmin";
-import NavigationAdmin from "@/app/components/Dashboard/navigation";
-import AdminPanel from "@/app/components/Dashboard/adminPanel";
+import useAuthAdmin from "@/hooks/useAuthAdmin";
+import NavigationAdmin from "@/components/Dashboard/navigation";
+import AdminPanel from "@/components/Dashboard/adminPanel";
 
 export default function usersPage () {
     const { session } = useAuthAdmin();

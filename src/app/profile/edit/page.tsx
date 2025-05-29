@@ -1,9 +1,9 @@
 'use client'
 import { signIn } from "next-auth/react";
-import useAuthCustomer from "@/app/hooks/useAuthCustomer";
+import useAuthCustomer from "@/hooks/useAuthCustomer";
 // import { useRouter } from "next/navigation";
 // import { useEffect } from "react";
-import Navbar from "@/app/components/navbar";
+import Navbar from "@/components/navbar";
 import React, { useState, useEffect } from "react";
 
 

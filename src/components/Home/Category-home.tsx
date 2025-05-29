@@ -1,5 +1,5 @@
 'use client'
-import { Category } from "@/app/services/api";
+import { Category } from "@/services/api";
 interface CategoryHome {
     gethandleRouter: (category: string) => void;
     categoryProd: Category;

@@ -1,8 +1,8 @@
 'use client'
 import { signOut, useSession } from "next-auth/react";
-import Navbar from "../components/navbar";
+import Navbar from "@/components/navbar";
 import { User, Mail } from "lucide-react";
-import useAuthCustomer from "../hooks/useAuthCustomer";
+import useAuthCustomer from "../../hooks/useAuthCustomer";
 
 export default function profile () {
     // custom hook customer authenticated

@@ -1,13 +1,13 @@
 'use client'
 import { useState, useEffect, ChangeEvent } from "react";
-import Navbar from "../components/navbar";
-import CardProduct from "../components/ListItem/card-products";
-import CategoryList from "../components/ListItem/Category-list";
+import Navbar from "@/components/navbar";
+import CardProduct from "@/components/ListItem/card-products";
+import CategoryList from "@/components/ListItem/Category-list";
 import { ReadonlyURLSearchParams, useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
-import { Category, fetchFilterCatProd, Product } from "../services/api";
-import { fetchDataProd, fetchDataCat } from "../services/api";
+import { Category, fetchFilterCatProd, Product } from "../../services/api";
+import { fetchDataProd, fetchDataCat } from "../../services/api";
 
 export default function ListItem() {
     const [products, setProducts] = useState<Product[]>([]);

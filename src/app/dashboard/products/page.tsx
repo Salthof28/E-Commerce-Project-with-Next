@@ -1,12 +1,12 @@
 'use client'
-import useAuthAdmin from "@/app/hooks/useAuthAdmin";
-import NavigationAdmin from "@/app/components/Dashboard/navigation";
-import AdminPanel from "@/app/components/Dashboard/adminPanel";
+import useAuthAdmin from "@/hooks/useAuthAdmin";
+import NavigationAdmin from "@/components/Dashboard/navigation";
+import AdminPanel from "@/components/Dashboard/adminPanel";
 import { Plus, SquarePen, Trash2 } from "lucide-react";
-import { Category, fetchDataCat, fetchDataProdPag, Product, CountLengDataProd } from "@/app/services/api";
+import { Category, fetchDataCat, fetchDataProdPag, Product, CountLengDataProd } from "@/services/api";
 import { useEffect, useState } from "react";
-import ProductForm from "@/app/components/Dashboard/ProductForm";
-import HeaderTable from "@/app/components/Dashboard/HeaderTable";
+import ProductForm from "@/components/Dashboard/ProductForm";
+import HeaderTable from "@/components/Dashboard/HeaderTable";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function usersPage () {

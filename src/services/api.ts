@@ -1,4 +1,3 @@
-import { Search } from "lucide-react";
 
 export interface Users {
     id: number,
@@ -50,7 +49,6 @@ export async function fetchDataProdPag (offset: number, productPerPage: number, 
     const response: Response = await fetch(`${API_BASE_URL}/products?offset=${offset}&limit=${productPerPage}${search ? `&title=${encodeURIComponent(search)}` : ``}`);
     return response.json();
 }
-
 // for count lengt data
 export async function CountLengDataProd (search: string): Promise<number> {
     const response: Response = await fetch(`${API_BASE_URL}/products${search ? `?title=${encodeURIComponent(search)}` : ``}`)

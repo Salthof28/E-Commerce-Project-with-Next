@@ -1,8 +1,8 @@
 'use client'
-import Navbar from "../components/navbar";
-import { Product } from "@/app/services/api";
+import Navbar from "@/components/navbar";
+import { Product } from "@/services/api";
 import { CartItem, useCart } from "@/app/context/Cart-context";
-import ListCheckOut from "../components/CheckOut/list-checkout";
+import ListCheckOut from "@/components/CheckOut/list-checkout";
 export default function CheckOut () {
     const {cart, addToCart, decReaseItem, removeItem, totalPaid, totalQuantity} = useCart();
     // useEffect (() => {
