@@ -10,7 +10,7 @@ import ProductForm from "@/components/Dashboard/ProductForm";
 import HeaderTable from "@/components/Dashboard/HeaderTable";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-export default function productHandlePage () {
+export default function ProductHandlePage () {
     const { session } = useAuthAdmin();
     const [products, setProducts] = useState<Product[]>([]);
     const [category, setCategory] = useState<Category[]>([]);
@@ -68,8 +68,12 @@ export default function productHandlePage () {
         fetchDataProducts(page);
     };
     const handlePageNavigation = (isNext: boolean) => {
-        if(!isNext) currentPage > 1 && handlePageChange(currentPage - 1);
-        else currentPage < totalPage && handlePageChange(currentPage + 1);
+        if(!isNext){
+            handlePageChange(currentPage > 1 ? currentPage - 1 : currentPage);
+        }
+        else {
+            handlePageChange(currentPage > 1 ? currentPage + 1 : currentPage);
+        }
         
     }
     const showFormProduct = (product?: Product): void => {

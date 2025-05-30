@@ -2,15 +2,12 @@
 import useAuthAdmin from "@/hooks/useAuthAdmin";
 import NavigationAdmin from "@/components/Dashboard/navigation";
 import AdminPanel from "@/components/Dashboard/adminPanel";
-import { Plus, SquarePen, Trash2 } from "lucide-react";
-import { fetchDataCat, fetchDataProdPag, CountLengDataProd, fetchDataProd } from "@/services/api";
-import { Category, Product, FormDataProduct } from "@/types/interfaces";
+import { fetchDataCat, fetchDataProd } from "@/services/api";
+import { Category, Product } from "@/types/interfaces";
 import { useEffect, useState } from "react";
-import ProductForm from "@/components/Dashboard/ProductForm";
-import HeaderTable from "@/components/Dashboard/HeaderTable";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
-export default function dashboard () {
+
+export default function Dashboard () {
     const { session } = useAuthAdmin();
     const [products, setProducts] = useState<Product[]>([]);
     const [category, setCategory] = useState<Category[]>([]);
@@ -70,8 +67,8 @@ export default function dashboard () {
                         {/* card 1 */}
                         <section className="flex flex-col gap-[1rem] p-[1rem] overflow-hidden rounded-[0.4rem] border border-gray-500/40 w-full">    
                             <h1 className="text-[1rem] md:text-[1.2rem] xl:text-[1.5rem] font-bold">Products</h1>
-                            {totalProductbyCat().map((item) => (
-                            <div className="flex flex-col gap-[0.5rem]">
+                            {totalProductbyCat().map((item,index) => (
+                            <div key={index} className="flex flex-col gap-[0.5rem]">
                                 <p className="text-[0.6rem] md:text-[0.8rem] xl:text-[1rem] font-bold">{item.categoryName}</p>
                                 <div className="bg-gray-200 w-full h-[0.5rem] rounded-[0.5rem]">
                                     <div className={`bg-emerald-600 h-[0.5rem] rounded-[0.5rem]`} style={{ width: `${persentaseProduct(item.Total)}%` }}></div>

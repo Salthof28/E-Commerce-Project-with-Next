@@ -4,7 +4,7 @@ import useAuthCustomer from "@/hooks/useAuthCustomer";
 import Navbar from "@/components/navbar";
 import React, { useState, useEffect } from "react";
 
-export default function editPass () {
+export default function EditPass () {
     // const { data: session } = useSession();
     // custom hook customer authenticated
     const { session, router } = useAuthCustomer()

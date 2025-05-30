@@ -1,10 +1,10 @@
 'use client'
-import { signOut, useSession } from "next-auth/react";
+import { signOut } from "next-auth/react";
 import Navbar from "@/components/navbar";
 import { User, Mail } from "lucide-react";
 import useAuthCustomer from "../../hooks/useAuthCustomer";
 
-export default function profile () {
+export default function Profile () {
     // custom hook customer authenticated
     const { session, router } = useAuthCustomer()
     return (
@@ -43,7 +43,7 @@ export default function profile () {
                     <section className="flex flex-col items-center bg-amber-200 p-[1rem] rounded-[1rem] w-[100%] lg:w-[63%] gap-[1rem] min-h-[20rem] xl:min-h-[40rem]">
                         <h1 className="text-[0.8rem] md:text-[1rem] lg:text-[1.5rem] xl:text-[2rem] font-bold">History What You Buy</h1>
                         <div className="h-full flex items-center">
-                            <h1 className="text-[0.6rem] md:text-[0.8rem] xl:text-[1rem] opacity-50">You don't buy Anything</h1>
+                            <h1 className="text-[0.6rem] md:text-[0.8rem] xl:text-[1rem] opacity-50">You don&apos;t buy Anything</h1>
                         </div>
                     </section>
                 </section>

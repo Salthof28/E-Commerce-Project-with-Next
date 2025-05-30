@@ -11,7 +11,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import UsersForm from "@/components/Dashboard/UsersForm";
 
 
-export default function usersHandlePage () {
+export default function UsersHandlePage () {
     const { session } = useAuthAdmin();
     const [users, setUsers] = useState<Users[]>([]);
     // const [category, setCategory] = useState<Category[]>([]);
@@ -81,8 +81,12 @@ export default function usersHandlePage () {
         } 
     };
     const handlePageNavigation = (isNext: boolean) => {
-        if(!isNext) currentPage > 1 && handlePageChange(currentPage - 1);
-        else currentPage < totalPage && handlePageChange(currentPage + 1);
+        if(!isNext){
+            handlePageChange(currentPage > 1 ? currentPage - 1 : currentPage);
+        }
+        else {
+            handlePageChange(currentPage > 1 ? currentPage + 1 : currentPage);
+        }
         
     }
     const showFormProduct = (user?: Users): void => {

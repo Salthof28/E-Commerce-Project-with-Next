@@ -7,7 +7,7 @@ import Navbar from "@/components/navbar";
 import React, { useState, useEffect } from "react";
 
 
-export default function editProfile () {
+export default function EditProfile () {
         // const { data: session } = useSession();
         // custom hook customer authenticated
         const { session, router } = useAuthCustomer()
@@ -82,7 +82,7 @@ export default function editProfile () {
                     <form onSubmit={handlesubmit} className="flex flex-col bg-amber-200 p-[1rem] rounded-[1rem] gap-[0.5rem] w-[80%] xl:w-[50%]">
                         <h1 className="text-center text-[1.2rem] md:text-[1.5rem] xl:text-[2rem] font-bold">Edit Profile</h1>
                         <div className="flex flex-col items-center gap-[0.5rem] p-[0.5rem] justify-center border border-gray-300 rounded-[1rem]">
-                            <img className="border w-[6rem] h-[6rem] md:w-[8rem] md:h-[8rem] rounded-[50%]" src={formData.avatar}></img>
+                            <img className="border w-[6rem] h-[6rem] md:w-[8rem] md:h-[8rem] rounded-[50%]" src={formData.avatar} alt="image-product"></img>
                             <label>Image url:</label>
                             <input onChange={handleChange} type="text" name="avatar" className="bg-amber-100 rounded-[0.5rem] border border-gray-300 p-[0.3rem]" value={formData.avatar} />
                         </div>

@@ -3,8 +3,9 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ShoppingCart } from "lucide-react";
 import { useCart } from "@/app/context/Cart-context";
+import { useSession } from "next-auth/react";
 export default function Navbar () {
-
+    const { data: session, status } = useSession();
     const [show, setShow] = useState<boolean>(true);
     const lastPositionScroll = useRef<number>(0);
     const [menuOpen, setMenuOpen] = useState<boolean>(false);
@@ -24,7 +25,6 @@ export default function Navbar () {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
-
     return (
         <div className="flex justify-center">
             <header className= {`text-center flex flex-col lg:flex-row w-[95vw] justify-between mt-3 bg-black/60 p-5 rounded-3xl fixed z-10 transition-transform duration-600 ease text-amber-50 ${show ? "translate-y-0" : "-translate-y-full"}`}>    
@@ -39,7 +39,7 @@ export default function Navbar () {
                 </div>                
                 <nav className={`lg:flex flex-col lg:flex-row max-lg:mb-[1rem] gap-[1rem] lg:gap-[2rem] ${menuOpen ? "flex" : "hidden"} items-center`}>
                     <Link href="/">Home</Link>
-                    <Link href="/login"><img src="/no-img-profile.png" className="w-[2rem]"/></Link>
+                    <Link href="/login"><img src={status === 'authenticated' ? session?.user?.avatar : '/no-img-profile.png'} className="rounded-[50%] w-[2rem] h-[2rem] "/></Link>
                     <Link href="/ListItem">Item List</Link>
                 </nav>
                 <nav className={`lg:flex items-center justify-center ${menuOpen ? "flex" : "hidden"}`}>

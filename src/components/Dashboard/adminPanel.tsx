@@ -44,8 +44,8 @@ export default function AdminPanel ({ session }: AdminPanelProps) {
                 
                 <h1 className="text-[1rem] xl:text-[1.5rem] font-bold">Admin Panel</h1>
                 <div className="flex flex-col pl-0 xl:pl-[1rem] py-[1rem] gap-[2rem] border-b-[0.1rem] border-gray-500/40 mb-[1rem]">
-                    {listDash.map((list) => (
-                        <Link href={list.href} className="flex flex-row items-center gap-[0.3rem] xl:gap-[0.5rem]">
+                    {listDash.map((list, index) => (
+                        <Link key={index} href={list.href} className="flex flex-row items-center gap-[0.3rem] xl:gap-[0.5rem]">
                             {list.icon}
                             <p className="text-[0.8rem] xl:text-[1rem]">{list.name}</p>
                         </Link>

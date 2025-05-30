@@ -7,14 +7,14 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
 
-export default function login () {
+export default function Register () {
     const [statusCreated, setStatusCreated] = useState<string>("Processing...");
     const [loading, setLoading] = useState<boolean>(false);
     const router = useRouter()
 
     useEffect(() => {
         const timeProcess = setTimeout (() => {
-            statusCreated === "User Created" && router.push('/login');
+            router.push(statusCreated === "User Created" ? "/login": "/register")
             setLoading(false);
             setStatusCreated("Processing...");
         }, 1000);
