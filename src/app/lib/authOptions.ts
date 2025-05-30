@@ -31,7 +31,10 @@ export const authOptions: NextAuthOptions = {
                             body: JSON.stringify({email: credentials.email, password: credentials.password})
                         });
                         // email or password false return null
-                        if(!response.ok) return null;
+                        if(!response.ok) {
+                            console.error(`Login Failed: ${await response.text()}`)
+                            return null;
+                        };
                         const data = await response.json();
                         console.log('data: ',data);
 
@@ -42,7 +45,10 @@ export const authOptions: NextAuthOptions = {
                                     Authorization: `Bearer ${data.access_token}`,
                             },
                         });
-                        if(!profileResponse.ok) return null;
+                        if(!profileResponse.ok) {
+                            console.error(`Login Failed: ${await profileResponse.text()}`)
+                            return null;
+                        };
                         const profile = await profileResponse.json();
                         console.log('profile: ', profile);
                         return {
