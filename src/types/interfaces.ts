@@ -26,8 +26,8 @@ export interface Category {
     name: string;
     image: string;
     slug: string;
-    creationAt: string;
-    updatedAt: string;
+    creationAt?: string;
+    updatedAt?: string;
 }
 export interface Product {
     id: number;
