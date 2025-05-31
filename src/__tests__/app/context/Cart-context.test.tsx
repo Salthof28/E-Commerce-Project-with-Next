@@ -2,7 +2,7 @@
 import { renderHook, act } from '@testing-library/react';
 import { CartProvider, useCart } from '@/app/context/Cart-context';
 import { Product } from '@/types/interfaces';
-import { waitFor } from '@testing-library/react';
+
 
 // Mock localStorage
 const store: Record<string, string> = {};
