@@ -69,7 +69,10 @@ export default function Dashboard () {
                             <h1 className="text-[1rem] md:text-[1.2rem] xl:text-[1.5rem] font-bold">Products</h1>
                             {totalProductbyCat().map((item,index) => (
                             <div key={index} className="flex flex-col gap-[0.5rem]">
-                                <p className="text-[0.6rem] md:text-[0.8rem] xl:text-[1rem] font-bold">{item.categoryName}</p>
+                                <div className="flex flex-row justify-between">
+                                    <p className="text-[0.6rem] md:text-[0.8rem] xl:text-[1rem] font-bold">{item.categoryName}</p>
+                                    <p className="text-[0.6rem] md:text-[0.8rem] xl:text-[1rem] font-bold">{item.Total}</p>
+                                </div>
                                 <div className="bg-gray-200 w-full h-[0.5rem] rounded-[0.5rem]">
                                     <div className={`bg-emerald-600 h-[0.5rem] rounded-[0.5rem]`} style={{ width: `${persentaseProduct(item.Total)}%` }}></div>
                                 </div>
