@@ -56,7 +56,7 @@ export default function UsersForm ({ user, onCancel, titleForm, onSubmit, isEdit
             )}
             <label>Role:</label>
             <select value={formData?.role} onChange={handleChange} name="role" className="bg-[rgb(8,5,3)] rounded-[0.5rem] border border-gray-300/20 p-[0.3rem]" >
-                <option value="0">Select Category</option>
+                <option value="0">Select Role</option>
                 {roles.map((role, index) => (
                     <option key={index} value={role}>{role}</option>
                 ))}

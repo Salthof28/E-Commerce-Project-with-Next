@@ -5,7 +5,7 @@ import { Users } from "@/types/interfaces";
 import { useRouter } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
-
+import { fetchUsers } from "@/services/api";
 
 export default function Register () {
     const [statusCreated, setStatusCreated] = useState<string>("Processing...");
@@ -29,8 +29,7 @@ export default function Register () {
         setLoading(true);
         if(!inputData.name || !inputData.email || !inputData.password) return setStatusCreated("Please fill all data");
         console.log(inputData);
-        const responseUsers = await fetch('https://api.escuelajs.co/api/v1/users');
-        const data: Users[] = await responseUsers.json();
+        const data: Users[] = await fetchUsers();
         
         const isEmailAvailabe = data.some(user => user.email === inputData.email);
         if(isEmailAvailabe){

@@ -16,6 +16,7 @@ export default function UsersHandlePage () {
     const [users, setUsers] = useState<Users[]>([]);
     // const [category, setCategory] = useState<Category[]>([]);
     const [showForm, setShowForm] = useState<boolean>(false);
+    const [statusSubmit, setStatusSubmit] = useState<string>("Loading....");
     const [loading, setLoading] = useState<boolean>(false);
     const [search, setSearch] = useState<string>("")
     const [currentUser, setCurrentUser] = useState<Users | undefined>(undefined);
@@ -36,7 +37,8 @@ export default function UsersHandlePage () {
             const totalUsers: number = await CountLengDataUsers(search);
             setTotalPage(Math.ceil(totalUsers/usersPerPage));
             setAllUsers(data);
-            setLoading(false);
+            setLoading(statusSubmit === "Loading...." ? false : true)
+
         }
         catch (err: unknown) {
             setError(err instanceof Error ? err.message : 'An unknown error occurred');
@@ -49,6 +51,13 @@ export default function UsersHandlePage () {
     useEffect (() => {
         handlePageChange(currentPage);
     }, [currentPage, allUsers]);
+    useEffect(() => {
+        const timeProcess = setTimeout (() => {
+            setLoading(false)
+            setStatusSubmit("Loading....");
+        }, 1200);
+        return () => clearTimeout(timeProcess);
+    }, [statusSubmit])
     // process search
     const handleSearch = (e: React.FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
@@ -116,9 +125,16 @@ export default function UsersHandlePage () {
     }
     const handleSubmit = async (data: FormDataUsers) => {
         setShowForm(false);
-        
+        setLoading(true);
         try {
         // for Update Product
+        const dataAll: Users[] = await fetchUsers();
+        const isEmailAvailabe = dataAll.some(user => user.email === data.email);
+        if(isEmailAvailabe && currentUser?.email !== data.email){
+            setStatusSubmit('Email Already Registered');
+            return fetchDataUsers();
+        }
+        else {
             if(currentUser){  
                 const response = await fetch(`https://api.escuelajs.co/api/v1/users/${currentUser.id}`, {
                     method: 'PUT',
@@ -126,6 +142,7 @@ export default function UsersHandlePage () {
                     body: JSON.stringify(data),
                 })
                 if(!response.ok) throw new Error (`Update failed with status: ${response.status}`);
+                setStatusSubmit('User Updated');
             }
             // for create product
             else{
@@ -136,14 +153,18 @@ export default function UsersHandlePage () {
                     body: JSON.stringify(data)
                 });
                 if(!response.ok) throw new Error (`Create failde with status: ${response.status}`);
+                setStatusSubmit('User Created');
             }
             return fetchDataUsers();
+        } 
+
         }
         catch (err: unknown) {
             setError(err instanceof Error ? err.message : 'An Unknown Error Occured');
             throw new Error(error);
         }     
     }
+
     return (
         <div className="bg-[rgb(8,5,3)] min-h-screen overflow-x-hidden">
             <NavigationAdmin session={session} />
@@ -156,8 +177,8 @@ export default function UsersHandlePage () {
                 <section className="flex flex-col w-[100%] lg:w-[85%] p-[2rem] text-[rgb(240,230,226)] items-center px-[0.5rem] md:px-[2rem] xl:px-[4rem] 2xl:px-[20rem] gap-[1rem]">
                     {/* title and btn add product section */}
                     <section className="flex flex-row justify-between w-full">
-                        <h1 className="text-[1rem] md:text-[1.5rem] xl:text-[2rem] font-bold">Page Products</h1>
-                        <button onClick={() => showFormProduct()} className="flex flex-row gap-[0.2rem] items-center text-[0.8rem] xl:text-[1rem] bg-emerald-500 p-[0.2rem] md:p-[0.4rem] rounded-[0.5rem]"><Plus className="w-[1rem] h-[1rem] xl:w-[1.2rem] xl:h-[1.2rem]" />Add Product</button>
+                        <h1 className="text-[1rem] md:text-[1.5rem] xl:text-[2rem] font-bold">Page Handle Users</h1>
+                        <button onClick={() => showFormProduct()} className="flex flex-row gap-[0.2rem] items-center text-[0.8rem] xl:text-[1rem] bg-emerald-500 p-[0.2rem] md:p-[0.4rem] rounded-[0.5rem]"><Plus className="w-[1rem] h-[1rem] xl:w-[1.2rem] xl:h-[1.2rem]" />Add User</button>
                     </section>
                     {/* form search */}
                     <form onSubmit={handleSearch} className="flex flex-row gap-[1rem] min-w-full items-center">
@@ -201,7 +222,7 @@ export default function UsersHandlePage () {
                     {/* loading section */}
                     {loading && (
                     <section className="flex justify-center items-center w-full h-full">
-                        <h1 className="text-lg lg:text-xl xl:text-2xl 2xl:text-4xl font-bold text-amber-50">Loading....</h1>
+                        <h1 className="text-lg lg:text-xl xl:text-2xl 2xl:text-4xl font-bold text-amber-50">{statusSubmit}</h1>
                     </section>
                     )}
                     {/* show form products */}
@@ -209,6 +230,11 @@ export default function UsersHandlePage () {
                     <UsersForm user={isEdit ? currentUser : undefined} onCancel={() => setShowForm(false)} titleForm={isEdit ? 'Edit User' : 'Create User'} onSubmit={handleSubmit} isEdit={isEdit} />
                     // <h1>lol</h1>
                     )}
+                    
+                    {/* <section className="bg-[#32190c6b] min-w-[15rem] min-h-[4rem] flex justify-center items-center rounded-[1rem]">
+                        <h1>{statusSubmit}</h1>
+                        <h1>asdas</h1>
+                    </section> */}
                 </section>
             </main>
         </div>
