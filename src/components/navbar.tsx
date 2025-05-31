@@ -39,7 +39,7 @@ export default function Navbar () {
                 <nav className={`lg:flex flex-col lg:flex-row max-lg:mb-[1rem] gap-[1rem] lg:gap-[2rem] ${menuOpen ? "flex" : "hidden"} items-center`}>
                     <Link href="/">Home</Link>
                     <Link href="/login"><img src={status === 'authenticated' ? session?.user?.avatar : '/no-img-profile.png'} className="rounded-[50%] w-[2rem] h-[2rem]" alt="Profile Picture"/></Link>
-                    <Link href="/ListItem">Item List</Link>
+                    <Link href="/ListItem?category=All">Item List</Link>
                 </nav>
                 <nav className={`lg:flex items-center justify-center ${menuOpen ? "flex" : "hidden"}`}>
                     <Link href="/CheckOut" className="relative">
