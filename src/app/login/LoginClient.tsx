@@ -1,15 +1,15 @@
 'use client'
-
 import { useState, useEffect } from "react";
 import Navbar from "@/components/navbar";
-import { useRouter, useSearchParams } from "next/navigation";
-import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import { useSearchParams } from "next/navigation";
+// import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { signIn } from "next-auth/react";
-
+import useAuthCustomer from "@/hooks/useAuthCustomer";
 
 
 export default function LoginClient () {
-    const router: AppRouterInstance = useRouter();
+    // const router: AppRouterInstance = useRouter();
+    const { router } = useAuthCustomer();
     const searchParams = useSearchParams();
     const redirect = searchParams.get('redirect') || ('/dashboard');
     const errorType = searchParams.get('error')
@@ -52,6 +52,7 @@ export default function LoginClient () {
         }
         else{
             router.push(redirect);
+            router.refresh();
         }
     }
 

@@ -2,15 +2,17 @@
 import { useEffect, useState } from "react";
 import Navbar from "@/components/navbar";
 import { Users } from "@/types/interfaces";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { fetchUsers } from "@/services/api";
+import useAuthCustomer from "@/hooks/useAuthCustomer";
 
 export default function Register () {
     const [statusCreated, setStatusCreated] = useState<string>("Processing...");
     const [loading, setLoading] = useState<boolean>(false);
-    const router = useRouter()
+    // const router = useRouter();
+    const { router } = useAuthCustomer();
 
     useEffect(() => {
         const timeProcess = setTimeout (() => {
