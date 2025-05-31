@@ -57,7 +57,7 @@ export const authOptions: NextAuthOptions = {
                             email: profile.email,
                             password: profile.password,
                             avatar: profile.avatar,
-                            role: profile.role, // misal default role, kamu bisa ubah sesuai isi profile
+                            role: profile.role, 
                             accessToken: data.access_token,
                         }
                     }

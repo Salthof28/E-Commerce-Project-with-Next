@@ -13,7 +13,7 @@ export default function Profile () {
             <main className="flex flex-col gap-[1rem] lg:gap-[2rem] items-center min-h-screen mx-[6%] md:mx-[12%]">
                 {/* Welcom section */}
                 <section className="flex flex-col justify-center items-center gap-[1rem] bg-amber-200 p-[1rem] mt-[8rem] w-full rounded-[1rem]">
-                    <img className="w-[6rem] md:w-[8rem] lg:w-[10rem] xl:w-[12rem] rounded-[50%] border border-gray-600" src={session?.user.avatar} />
+                    <img className="w-[6rem] md:w-[8rem] lg:w-[10rem] xl:w-[12rem] h-[6rem] md:h-[8rem] lg:h-[10rem] xl:h-[12rem] rounded-[50%] border border-gray-600" src={session?.user.avatar} />
                     <h1 className="max-lg:text-center text-[0.8rem] md:text-[1rem] lg:text-[1.5rem] xl:text-[2rem] font-extrabold">Welcome {session?.user?.name}, Enjoy Your Shopping</h1>
                 </section>
                 {/* Profile and history section */}

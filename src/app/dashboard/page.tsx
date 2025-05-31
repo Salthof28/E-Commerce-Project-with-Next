@@ -50,7 +50,8 @@ export default function Dashboard () {
     });
     return result
     }
-    console.log(totalProductbyCat());
+
+    // console.log(totalProductbyCat());
     return (
         <div className="bg-[rgb(8,5,3)] min-h-screen overflow-x-hidden">
             <NavigationAdmin session={session} />
@@ -71,7 +72,7 @@ export default function Dashboard () {
                             <div key={index} className="flex flex-col gap-[0.5rem]">
                                 <div className="flex flex-row justify-between">
                                     <p className="text-[0.6rem] md:text-[0.8rem] xl:text-[1rem] font-bold">{item.categoryName}</p>
-                                    <p className="text-[0.6rem] md:text-[0.8rem] xl:text-[1rem] font-bold">{item.Total}</p>
+                                    <p className="text-[0.6rem] md:text-[0.8rem] xl:text-[1rem] font-bold">{item.Total} Product</p>
                                 </div>
                                 <div className="bg-gray-200 w-full h-[0.5rem] rounded-[0.5rem]">
                                     <div className={`bg-emerald-600 h-[0.5rem] rounded-[0.5rem]`} style={{ width: `${persentaseProduct(item.Total)}%` }}></div>
