@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { ShoppingCart } from "lucide-react";
 import { useCart } from "@/app/context/Cart-context";
 import { useSession } from "next-auth/react";
+import { House, ShoppingBag } from "lucide-react";
 export default function Navbar () {
     const { data: session, status } = useSession();
     const [show, setShow] = useState<boolean>(true);
@@ -36,14 +37,14 @@ export default function Navbar () {
                         </svg>
                     </button>
                 </div>                
-                <nav className={`lg:flex flex-col lg:flex-row max-lg:mb-[1rem] gap-[1rem] lg:gap-[2rem] ${menuOpen ? "flex" : "hidden"} items-center`}>
-                    <Link href="/">Home</Link>
-                    <Link href="/login"><img src={status === 'authenticated' ? session?.user?.avatar : '/no-img-profile.png'} className="rounded-[50%] w-[2rem] h-[2rem]" alt="Profile Picture"/></Link>
-                    <Link href="/ListItem?category=All">Item List</Link>
+                <nav className={`lg:flex flex-col lg:flex-row max-lg:mb-[1rem] gap-[1rem] lg:gap-[4rem] ${menuOpen ? "flex" : "hidden"} items-center`}>
+                    <Link href="/" className="flex flex-col justify-center items-center"><House className="w-[2.5rem] h-[2.5rem]" /> Home</Link>
+                    <Link href="/login" className="flex flex-col justify-center items-center"><img src={status === 'authenticated' ? session?.user?.avatar : '/no-img-profile.png'} className="rounded-[50%] w-[2.5rem] h-[2.5rem]" alt="Profile Picture"/> {session?.user?.name || 'Guest'}</Link>
+                    <Link href="/ListItem?category=All" className="flex flex-col justify-center items-center"><ShoppingBag className="w-[2.5rem] h-[2.5rem]" /> Shop</Link>
                 </nav>
                 <nav className={`lg:flex items-center justify-center ${menuOpen ? "flex" : "hidden"}`}>
                     <Link href="/CheckOut" className="relative">
-                        <ShoppingCart />
+                        <ShoppingCart className="w-[2.5rem] h-[2.5rem]" />
                         {totalQuantity() > 0 && (
                             <span className={`flex items-center justify-center absolute text-[0.8rem] -top-[0.5rem] left-[0.8rem] bg-red-700 rounded-[100%] w-[1.2rem] h-[1.2rem] animate-bounce p-[0.7rem]`}>{totalQuantity() > 9 ? '9+' : totalQuantity()}</span>
                         )}
