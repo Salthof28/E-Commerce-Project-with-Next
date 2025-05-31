@@ -38,9 +38,9 @@ export default function Navbar () {
                     </button>
                 </div>                
                 <nav className={`lg:flex flex-col lg:flex-row max-lg:mb-[1rem] gap-[1rem] lg:gap-[4rem] ${menuOpen ? "flex" : "hidden"} items-center`}>
-                    <Link href="/" className="flex flex-col justify-center items-center"><House className="w-[2.5rem] h-[2.5rem]" /> Home</Link>
-                    <Link href="/login" className="flex flex-col justify-center items-center"><img src={status === 'authenticated' ? session?.user?.avatar : '/no-img-profile.png'} className="rounded-[50%] w-[2.5rem] h-[2.5rem]" alt="Profile Picture"/> {session?.user?.name || 'Guest'}</Link>
-                    <Link href="/ListItem?category=All" className="flex flex-col justify-center items-center"><ShoppingBag className="w-[2.5rem] h-[2.5rem]" /> Shop</Link>
+                    <Link href="/" className="flex flex-col justify-center items-center gap-[0.1rem]"><House className="w-[2.5rem] h-[2.5rem]" /> Home</Link>
+                    <Link href="/login" className="flex flex-col justify-center items-center gap-[0.1rem]"><img src={status === 'authenticated' ? session?.user?.avatar : '/no-img-profile.png'} className="rounded-[50%] w-[2.5rem] h-[2.5rem]" alt="Profile Picture"/> {session?.user?.name || 'Guest'}</Link>
+                    <Link href="/ListItem?category=All" className="flex flex-col justify-center items-center gap-[0.1rem]"><ShoppingBag className="w-[2.5rem] h-[2.5rem]" /> Shop</Link>
                 </nav>
                 <nav className={`lg:flex items-center justify-center ${menuOpen ? "flex" : "hidden"}`}>
                     <Link href="/CheckOut" className="relative">
