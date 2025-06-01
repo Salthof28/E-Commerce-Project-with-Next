@@ -29,7 +29,7 @@ describe('Navbar Component', () => {
 
     // Check menu links
     expect(screen.getByText(/home/i)).toBeInTheDocument();
-    expect(screen.getByText(/item list/i)).toBeInTheDocument();
+    expect(screen.getByText(/Shop/i)).toBeInTheDocument();
 
     // Check cart icon
     expect(screen.getByRole('link', { name: '' })).toHaveAttribute('href', '/CheckOut');

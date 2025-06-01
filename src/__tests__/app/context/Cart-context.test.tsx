@@ -9,13 +9,13 @@ const store: Record<string, string> = {};
 beforeEach(() => {
     // const store: Record<string, string> = {};
 
-    jest.spyOn(Storage.prototype, 'getItem').mockImplementation((key: string): string | null => store[key] || null);
-    jest.spyOn(Storage.prototype, 'setItem').mockImplementation((key: string, value: string): void => {
-    store[key] = value;
-    });
-    jest.spyOn(Storage.prototype, 'removeItem').mockImplementation((key: string): void => {
-    delete store[key];
-});
+      jest.spyOn(Storage.prototype, 'getItem').mockImplementation((key: string): string | null => store[key] || null);
+      jest.spyOn(Storage.prototype, 'setItem').mockImplementation((key: string, value: string): void => {
+      store[key] = value;
+      });
+      jest.spyOn(Storage.prototype, 'removeItem').mockImplementation((key: string): void => {
+        delete store[key];
+      });
 });
 
 afterEach(() => {
