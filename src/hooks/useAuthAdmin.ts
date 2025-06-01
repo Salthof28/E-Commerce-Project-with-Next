@@ -14,5 +14,5 @@ export default function useAuthAdmin() {
     }
   }, [status, session, router]);
 
-  return { session };
+  return { session, router };
 }
