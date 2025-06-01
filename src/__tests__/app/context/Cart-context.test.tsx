@@ -8,21 +8,17 @@ import { Product } from '@/types/interfaces';
 const store: Record<string, string> = {};
 beforeEach(() => {
     // const store: Record<string, string> = {};
-
-      jest.spyOn(Storage.prototype, 'getItem').mockImplementation((key: string): string | null => store[key] || null);
-      jest.spyOn(Storage.prototype, 'setItem').mockImplementation((key: string, value: string): void => {
-      store[key] = value;
-      });
-      jest.spyOn(Storage.prototype, 'removeItem').mockImplementation((key: string): void => {
-        delete store[key];
-      });
+    // create spy methode getItem for protipe localstorage(dumy local storage). mockImplementation change getItem to funcyion, return key value from object store or value null
+    jest.spyOn(Storage.prototype, 'getItem').mockImplementation((key: string): string | null => store[key] || null)
+    jest.spyOn(Storage.prototype, 'setItem').mockImplementation((key: string, value: string): void => { store[key] = value })
+    jest.spyOn(Storage.prototype, 'removeItem').mockImplementation((key: string): void => { delete store[key] });
 });
 
 afterEach(() => {
   jest.clearAllMocks();
 });
 
-const wrapper = ({ children }: { children: React.ReactNode }) => <CartProvider>{children}</CartProvider>;
+const wrapper = ({ children }: { children: React.ReactNode }) => <CartProvider>{children}</CartProvider>; // beacause context. use this for implement context to children
 
 const mockProduct: Product = {
   id: 1,
