@@ -18,13 +18,13 @@ interface CardProductProps {
 }
 export default function CardProduct ({ product, handleRouter }: CardProductProps) {
     return (
-        <div className="bg-amber-50 rounded-2xl  w-[12rem] xl:w-[15rem] 2xl:w-[25rem] h-[28rem] xl:h-[32rem] 2xl:h-[42rem]">
-            <img src={product?.images?.[0] || "/no-img.jpg"} className="rounded-t-2xl w-full h-[15rem] 2xl:h-[25rem] object-cover"/>
-            <div className="p-3 flex flex-col justify-between min-h-[13rem] xl:min-h-[16rem] text-justify">
+        <div className="bg-amber-50 rounded-2xl  w-[12rem] xl:w-[15rem] 2xl:w-[25rem] h-[21rem] xl:h-[25rem] 2xl:h-[42rem]">
+            <img src={product?.images?.[0] || "/no-img.jpg"} className="rounded-t-2xl w-full h-[8rem] xl:h-[10rem] 2xl:h-[25rem] object-cover"/>
+            <div className="p-3 flex flex-col justify-between min-h-[13rem] xl:min-h-[15rem] 2xl:min-h-[16rem] text-justify">
                 <div>
-                    <h1 className="text-[0.6rem] xl:text-[0.8rem] 2xl:text-[1rem] font-bold text-start text-black">{product.title}</h1>
+                    <h1 className="text-[0.6rem] xl:text-[0.8rem] 2xl:text-[1rem] font-bold text-start text-black">{product.title.slice(0,30)}{product.title.length > 30 ? '...' : ''}</h1>
                     <p className="mb-[2rem] 2xl:mb-[2rem] text-[0.6rem] xl:text-[0.8rem] text-gray-400">Category: {product?.category?.name}</p>
-                    <p className="text-justify text-[0.6rem] xl:text-[0.8rem] 2xl:text-[1rem] text-black">{product?.description?.slice(0,100)}...</p>
+                    <p className="text-justify text-[0.6rem] xl:text-[0.8rem] 2xl:text-[1rem] text-black">{product?.description?.slice(0,80)}...</p>
                 </div>
                 <div className="text-center">
                     <p className=" text-[0.6rem] xl:text-[0.8rem] text-black">${product?.price}</p>
