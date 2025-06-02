@@ -14,15 +14,11 @@ export default function HomeClient({ category }: HomeClient) {
 
   const router: AppRouterInstance = useRouter();
   const sliderRef = useRef<HTMLDivElement | null>(null);
-  // const [categoryProducts, setCategoryProducts] = useState<Category[]>([]);
-  // const [error, setError] = useState<string>('');
   const categoryProducts: Category[] = category
   const [currentImage, setCurrentImage] = useState<number>(0)
-  // const [imageHome, setImageHome] = useState<string[]>([]);
   const imageHome: string[] = categoryProducts.map(cat => cat.image);
 
   const handleRouter = (category: string): void => {
-    // console.log(category);
     router.push(`/ListItem?category=${category}`)
   }
   
@@ -42,7 +38,6 @@ export default function HomeClient({ category }: HomeClient) {
       clearInterval(intervalImageHome);
      }  
   }, [imageHome])
-  // console.log(imageHome);
 
   return (
     <div className="text-center min-h-screen overflow-x-hidden">
@@ -61,14 +56,14 @@ export default function HomeClient({ category }: HomeClient) {
         <section className="flex flex-col w-[100vw] pt-[16rem] md:pt-[25rem] bg-amber-700">
           <h1 className="font-bold text-3xl md:text-6xl lg:text-8xl text-amber-50">Category</h1>
           <div className="flex items-center gap-2 justify-center m-4 md:m-14">
-            <button onClick={() => handleSlider('left')} className="bg-yellow-300 h-6 rounded-[50%] shadow-lg hover:shadow-[0_0_4px_4px_rgba(240,183,140,0.6)] active:scale-80 duration-200"><ChevronLeft className="text-amber-700" /></button>
+            <button data-testid="arrow-left" onClick={() => handleSlider('left')} className="bg-yellow-300 h-6 rounded-[50%] shadow-lg hover:shadow-[0_0_4px_4px_rgba(240,183,140,0.6)] active:scale-80 duration-200"><ChevronLeft className="text-amber-700" /></button>
             <div ref={sliderRef} className="flex flex-row flex-nowrap gap-8 overflow-x-auto items-center overscroll-y-contain scrollbar-hide w-[90vw] md:w-[80vw]">
               {/* to component/Home/Category-home.tsx */}
               {categoryProducts.map((categoryProd) => 
                 <CategoryHome key={categoryProd.id} gethandleRouter={handleRouter} categoryProd={categoryProd} />
               )}
             </div> 
-            <button onClick={() => handleSlider('right')} className="bg-yellow-300 h-6 rounded-[50%] shadow-lg hover:shadow-[0_0_4px_4px_rgba(240,183,140,0.6)] active:scale-80 duration-200"><ChevronRight className="text-amber-700" /></button>
+            <button data-testid="arrow-right" onClick={() => handleSlider('right')} className="bg-yellow-300 h-6 rounded-[50%] shadow-lg hover:shadow-[0_0_4px_4px_rgba(240,183,140,0.6)] active:scale-80 duration-200"><ChevronRight className="text-amber-700" /></button>
           </div>
         </section>
       </main>
