@@ -24,7 +24,7 @@ export default function CardProduct ({ product, handleRouter }: CardProductProps
                 <div>
                     <h1 className="text-[0.6rem] xl:text-[0.8rem] 2xl:text-[1rem] font-bold text-start text-black">{product.title.slice(0,30)}{product.title.length > 30 ? '...' : ''}</h1>
                     <p className="mb-[2rem] 2xl:mb-[2rem] text-[0.6rem] xl:text-[0.8rem] text-gray-400">Category: {product?.category?.name}</p>
-                    <p className="text-justify text-[0.6rem] xl:text-[0.8rem] 2xl:text-[1rem] text-black">{product?.description?.slice(0,80)}...</p>
+                    <p className="text-justify text-[0.6rem] xl:text-[0.8rem] 2xl:text-[1rem] text-black">{product?.description?.slice(0,80)}{product.description.length > 80 ? '...' : ''}</p>
                 </div>
                 <div className="text-center">
                     <p className=" text-[0.6rem] xl:text-[0.8rem] text-black">${product?.price}</p>
