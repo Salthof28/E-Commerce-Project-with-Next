@@ -34,11 +34,11 @@ export default function AdminPanel ({ session }: AdminPanelProps) {
     return (
         <div className="relative">
             {!isOpen && (
-                <button onClick={() => setIsOpen(true)} className=" lg:hidden absolute -top-[2.8rem] left-[3rem]"><Menu /></button>
+                <button data-testid='hamButton' onClick={() => setIsOpen(true)} className=" lg:hidden absolute -top-[2.8rem] left-[3rem]"><Menu /></button>
             )}
-            <header className={`-translate-x-full lg:translate-x-0 max-lg:fixed max-md:w-full max-lg:w-[30%] max-lg:top-[0rem] text-[rgb(240,230,226)] bg-[#180c05] p-[1rem] h-screen transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' :'-translate-x-full'}`}>
+            <header data-testid='navPanel' className={`-translate-x-full lg:translate-x-0 max-lg:fixed max-md:w-full max-lg:w-[30%] max-lg:top-[0rem] text-[rgb(240,230,226)] bg-[#180c05] p-[1rem] h-screen transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' :'-translate-x-full'}`}>
                 {/* Panel content */}
-                <div onClick={() => setIsOpen(false)} className="flex justify-end lg:hidden">
+                <div data-testid='closePanel' onClick={() => setIsOpen(false)} className="flex justify-end lg:hidden">
                     <button ><X /></button>
                 </div>
                 
