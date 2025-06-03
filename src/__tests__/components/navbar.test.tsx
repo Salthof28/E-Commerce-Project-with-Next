@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import Navbar from '@/components/navbar';
 import { useSession } from 'next-auth/react';
 import { useCart } from '@/app/context/Cart-context';
@@ -101,4 +101,36 @@ describe('Navbar Component', () => {
     expect(linkHome).toHaveAttribute('href', '/');
   })
 
+  test('test hidden navbar as scroll down website', () => {
+    render(<Navbar />);
+
+    const navbar = screen.getByTestId('navbarTest');
+    act(() => {
+      window.scrollY = 100;
+      window.dispatchEvent(new Event('scroll'));
+    });
+    expect(navbar).toHaveClass('-translate-y-full');
+  });
+
+  test('test show navbar as scroll up website', () => {
+    render(<Navbar />);
+
+    const navbar = screen.getByTestId('navbarTest');
+    act(() => {
+      window.scrollY = 30;
+      window.dispatchEvent(new Event('scroll'));
+    });
+    expect(navbar.className).toMatch(/translate-y-0/);
+  });
+  
+  test('test hamburger navbar button', () => {
+    render(<Navbar />);
+
+    const btnHamburger = screen.getByTestId('btnHamburger');
+    const nav = screen.getByTestId('hamburgerNav');
+    expect(nav).toHaveClass('hidden');
+    
+    fireEvent.click(btnHamburger);
+    expect(nav).toHaveClass('flex');
+  });
 });
