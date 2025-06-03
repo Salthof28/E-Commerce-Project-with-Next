@@ -9,14 +9,20 @@ import { Category } from '@/types/interfaces';
 jest.mock('next/navigation', () => ({
   useRouter: jest.fn(),
 }));
-jest.mock('@/components/navbar', () => () => <div data-testid="navbar">Mocked Navbar</div>);
+jest.mock('@/components/navbar', () => {
+  const MockNavbar = () => <div data-testid="navbar">Mocked Navbar</div>;
+  MockNavbar.displayName = 'MockNavbar';
+  return MockNavbar
+});
 
-jest.mock('@/components/Home/Category-home', () => ({ categoryProd, gethandleRouter }: { categoryProd: Category, gethandleRouter: (category: string) => void }) => (
-  <div data-testid={`category-${categoryProd.slug}`}>
+jest.mock('@/components/Home/Category-home', () => {
+  const MockCategoryHome = ({ categoryProd, gethandleRouter }: { categoryProd: Category, gethandleRouter: (category: string) => void }) => (<div data-testid={`category-${categoryProd.slug}`}>
     <h1>The Best {categoryProd.name}</h1>
     <button onClick={() => gethandleRouter(categoryProd.slug)}>Shop {categoryProd.name}</button>
-  </div>
-));
+  </div>)
+  MockCategoryHome.displayName = 'MockCategoryHome';
+  return MockCategoryHome
+});
 
 // Mock scrollBy pada HTMLDivElement
 const mockScrollBy = jest.fn();
