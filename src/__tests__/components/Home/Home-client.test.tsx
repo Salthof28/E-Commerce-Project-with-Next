@@ -36,7 +36,7 @@ beforeAll(() => {
 
 afterAll(() => {
   // Bersihkan mock scrollBy
-  delete (HTMLElement.prototype as any).scrollBy;
+  delete (HTMLElement.prototype as Partial<HTMLElement & { scrollBy: () => void }>).scrollBy;
 });
 
 describe('HomeClient Component', () => {
