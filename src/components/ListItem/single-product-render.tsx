@@ -28,8 +28,8 @@ export default function SingleProductRender ( { product, images }: SingleProduct
     useEffect(() => {
         // console.log(cart);
         const filterProduct: CartItem[] = cart.filter(item => item.product.id === product.id);
-        setTotalCheckout(filterProduct.length > 0 ? filterProduct[0].quantity : 0)
-        console.log(cart);
+        setTotalCheckout(filterProduct.length > 0 ? filterProduct[0].quantity : 0);
+        // console.log(cart);
         
     }, [cart]);
 
@@ -38,9 +38,9 @@ export default function SingleProductRender ( { product, images }: SingleProduct
             <main className="px-[2rem] md:px-[4rem] pt-[8rem] flex flex-col lg:flex-row gap-[2rem] justify-center max-lg:items-center">
                 {/* image Section */}
                 <section className="relative w-[16rem] md:w-[35rem] aspect-[4/3] lg:w-[30rem] bg-amber-100 flex items-center justify-between rounded-2xl p-4">
-                    <button onClick={slideLeft} className="z-10 bg-yellow-300 h-6 rounded-[50%] shadow-lg hover:shadow-[0_0_4px_4px_rgba(240,183,140,0.6)] active:scale-80 duration-200"><ChevronLeft className="text-amber-700" /></button>
+                    <button data-testid="slideLeft" onClick={slideLeft} className="z-10 bg-yellow-300 h-6 rounded-[50%] shadow-lg hover:shadow-[0_0_4px_4px_rgba(240,183,140,0.6)] active:scale-80 duration-200"><ChevronLeft className="text-amber-700" /></button>
                     <img className="absolute rounded-2xl w-full h-full inset-0 object-cover" src={product?.images?.[currentImages]}></img>
-                    <button onClick={slideRight} className="z-10 bg-yellow-300 h-6 rounded-[50%] shadow-lg hover:shadow-[0_0_4px_4px_rgba(240,183,140,0.6)] active:scale-80 duration-200"><ChevronRight className="text-amber-700" /></button>
+                    <button data-testid="slideRight" onClick={slideRight} className="z-10 bg-yellow-300 h-6 rounded-[50%] shadow-lg hover:shadow-[0_0_4px_4px_rgba(240,183,140,0.6)] active:scale-80 duration-200"><ChevronRight className="text-amber-700" /></button>
                 </section>
                 {/* Detail Product Section */}
                 <section className="bg-amber-100 w-[16rem] md:w-[35rem] lg:w-[60rem] rounded-2xl p-[0.8rem] md:p-[1.5rem] xl:p-[3rem] text-center flex flex-col justify-between">

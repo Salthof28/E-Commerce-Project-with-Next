@@ -2,6 +2,7 @@ import Navbar from "@/components/navbar";
 import SingleProductRender from "@/components/ListItem/single-product-render";
 import { Product } from "@/types/interfaces";
 import { fetchDataSingProd } from "@/services/api";
+export const revalidate = 300;
 interface Params {
     params: Promise<{ id: string }>
 }
