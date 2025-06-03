@@ -64,21 +64,21 @@ describe('HomeClient Component', () => {
   test('renders Navbar and section elements correctly', () => {
     render(<HomeClient category={mockCategories} />);
 
-    // Periksa Navbar
+    // check Navbar
     expect(screen.getByTestId('navbar')).toBeInTheDocument();
 
-    // Periksa elemen section Home
+    // check elemen section Home
     expect(screen.getByText(/Hurry Up/i)).toBeInTheDocument();
     expect(screen.getByText(/The Best Price/i)).toBeInTheDocument();
     expect(screen.getByText(/Waiting For You/i)).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /Shop Now/i })).toBeInTheDocument();
 
-    // Periksa section Category
+    // check section Category
     expect(screen.getByText(/Category/i)).toBeInTheDocument();
     expect(screen.getByTestId('arrow-left')).toBeInTheDocument();
     expect(screen.getByTestId('arrow-right')).toBeInTheDocument();
 
-    // Periksa rendering CategoryHome
+    // check rendering CategoryHome
     expect(screen.getByTestId('category-electronics')).toBeInTheDocument();
     expect(screen.getByTestId('category-clothing')).toBeInTheDocument();
   });
