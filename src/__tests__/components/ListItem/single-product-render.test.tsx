@@ -16,7 +16,7 @@ const mockProduct = {
         updatedAt: '2025-01-02',
     }
 };
-let mockCart = [{
+const mockCart = [{
     product: mockProduct,
     quantity: 2
 }]
