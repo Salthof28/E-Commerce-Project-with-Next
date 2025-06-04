@@ -1,6 +1,5 @@
 import ProductForm from "@/components/Dashboard/ProductForm";
 import { fireEvent, render, screen } from "@testing-library/react";
-import { Target } from "lucide-react";
 
 describe('Testing ProductForm', () => {
     const mockProduct = {
@@ -68,7 +67,7 @@ describe('Testing ProductForm', () => {
 
         
         expect(titleForm).toBeInTheDocument();
-        expect(newImage).toBeInTheDocument;
+        expect(newImage).toBeInTheDocument();
         expect(labelNewImage).toBeInTheDocument();
         expect(inptNewImage).toHaveValue("");
         expect(btnAddImage).toHaveClass('bg-gray-500 cursor-not-allowed');
@@ -122,7 +121,7 @@ describe('Testing ProductForm', () => {
 
         
         expect(titleForm).toBeInTheDocument();
-        expect(newImage).toBeInTheDocument;
+        expect(newImage).toBeInTheDocument();
         expect(labelNewImage).toBeInTheDocument();
         expect(inptNewImage).toHaveValue("");
         expect(btnAddImage).toHaveClass('bg-gray-500 cursor-not-allowed');
