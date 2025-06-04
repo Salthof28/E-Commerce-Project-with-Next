@@ -1,7 +1,8 @@
 import useAuthCustomer from "@/hooks/useAuthCustomer";
 import { renderHook } from "@testing-library/react";
 import { useSession } from "next-auth/react";
-import * as nextNavigation from "next/navigation";
+
+import { useRouter } from "next/navigation";
 jest.mock('next-auth/react', () => ({
     useSession: jest.fn()
 }));
@@ -15,7 +16,7 @@ describe('testing hook useAuthAdmin', () => {
 
     beforeEach(() => {
         jest.clearAllMocks();
-        const mockedUseRouter = nextNavigation.useRouter as jest.Mock;
+        const mockedUseRouter = useRouter as jest.Mock;
         mockedUseRouter.mockReturnValue({ push: pushMock });
         (useSession as jest.Mock).mockReturnValue({
             data: null,
