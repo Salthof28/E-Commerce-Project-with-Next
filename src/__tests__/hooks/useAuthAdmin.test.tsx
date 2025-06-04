@@ -15,8 +15,10 @@ describe('testing hook useAuthAdmin', () => {
 
     beforeEach(() => {
         jest.clearAllMocks();
+        // setting mock useRouter to return object function push
         const mockedUseRouter = useRouter as jest.Mock;
         mockedUseRouter.mockReturnValue({ push: pushMock });
+        // for status session unauthenticated
         (useSession as jest.Mock).mockReturnValue({
             data: null,
             status: 'unauthenticated',
@@ -24,11 +26,11 @@ describe('testing hook useAuthAdmin', () => {
     });
 
     test('redirect to /login when unauthenticated', () => {
-        renderHook(() => useAuthAdmin());
+        renderHook(() => useAuthAdmin()); // simulation running hook
         expect(pushMock).toHaveBeenCalledWith('/login');
     });
 
-    test('redirect to /login when unauthenticated', () => {
+    test('redirect to /profile when authenticated and role customer', () => {
         (useSession as jest.Mock).mockReturnValue({
             data: {
                 user: {

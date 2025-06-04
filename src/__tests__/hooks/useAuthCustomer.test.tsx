@@ -29,7 +29,7 @@ describe('testing hook useAuthAdmin', () => {
         expect(pushMock).toHaveBeenCalledWith('/login');
     });
 
-    test('redirect to /login when unauthenticated', () => {
+    test('redirect to /dashboard when authenticated and role admin', () => {
         (useSession as jest.Mock).mockReturnValue({
             data: {
                 user: {
