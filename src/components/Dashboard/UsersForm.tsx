@@ -39,7 +39,7 @@ export default function UsersForm ({ user, onCancel, titleForm, onSubmit, isEdit
             <section className="flex flex-col items-center gap-[1rem] p-[1rem] justify-center border border-gray-300/20 rounded-[1rem]">
                 {/* section add image */}
                 <section className="flex flex-col items-center gap-[0.5rem]">
-                    <img className="border w-[6rem] h-[6rem] md:w-[8rem] md:h-[8rem] rounded-[50%]" src={formData.avatar}></img>
+                    <img className="border w-[6rem] h-[6rem] md:w-[8rem] md:h-[8rem] rounded-[50%]" src={formData.avatar || '/no-img-profile.png'}></img>
                     <label>Image url:</label>
                     <input data-testid='inptAvatar' value={formData.avatar} onChange={handleChange} type="text" name="avatar" className="bg-[rgb(8,5,3)] rounded-[0.5rem] border border-gray-300/20 p-[0.3rem]"/>
                 </section>

@@ -56,7 +56,7 @@ export default function ProductForm ({ product, onCancel, titleForm, category, o
             <section className="flex flex-col items-center gap-[1rem] p-[1rem] justify-center border border-gray-300/20 rounded-[1rem]">
                 {/* section add image */}
                 <section className="flex flex-col items-center gap-[0.5rem]">
-                    <img data-testid='newImg' className="border w-[6rem] h-[6rem] md:w-[8rem] md:h-[8rem] rounded-[50%]" src={newImage}></img>
+                    <img data-testid='newImg' className="border w-[6rem] h-[6rem] md:w-[8rem] md:h-[8rem] rounded-[50%]" src={newImage || '/no-img.jpg'}></img>
                     <label>Add New Image url:</label>
                     <div className="flex flex-col md:flex-row gap-[0.5rem] items-center">
                         <input data-testid="inptNewImage" value={newImage} onChange={(e) => setNewImage(e.target.value)} type="text" name="imageNow" className="bg-[rgb(8,5,3)] rounded-[0.5rem] border border-gray-300/20 p-[0.3rem]"/>
