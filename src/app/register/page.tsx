@@ -60,10 +60,10 @@ export default function Register () {
                     <form onSubmit={handleregister} className="flex flex-col bg-amber-100 p-[2rem] pt-[1rem] gap-[1rem] rounded-[1rem] w-[15rem] text-black">
                         <Link href="/login"><ArrowLeft /></Link>
                         <h1 className="font-extrabold ">Register Page</h1>
-                        <input type="text" name="name" placeholder="name" className="border p-[0.2rem] rounded-[0.6rem]"/>
-                        <input type="email" name="email" placeholder="email@mail.com" className="border p-[0.2rem] rounded-[0.6rem]"/>
-                        <input type="password" name="password" placeholder="Passsword" className="border p-[0.2rem] rounded-[0.6rem]"/>
-                        <button type="submit" className="bg-emerald-500 rounded-[0.4rem] hover:bg-emerald-700 hover:text-white active:scale-95 duration-200" >Register</button>
+                        <input data-testid="inptName" type="text" name="name" placeholder="name" className="border p-[0.2rem] rounded-[0.6rem]"/>
+                        <input data-testid="inptEmail" type="email" name="email" placeholder="email@mail.com" className="border p-[0.2rem] rounded-[0.6rem]"/>
+                        <input data-testid="inptPassword" type="password" name="password" placeholder="Passsword" className="border p-[0.2rem] rounded-[0.6rem]"/>
+                        <button data-testid="btnRegister" type="submit" className="bg-emerald-500 rounded-[0.4rem] hover:bg-emerald-700 hover:text-white active:scale-95 duration-200" >Register</button>
                     </form>
                 )}
                 {loading && (
