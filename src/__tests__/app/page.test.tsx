@@ -26,7 +26,7 @@ describe('Testing Home Page', () => {
             { id: 1, name: 'Electronics' },
             { id: 2, name: 'Clothes' }
         ];
-
+        // force fetchDataCat return mockCat
         (fetchDataCat as jest.Mock).mockResolvedValue(mockCat);
         
         const HomeComponent = await Home();
