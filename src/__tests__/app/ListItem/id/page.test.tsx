@@ -1,8 +1,7 @@
 import SingleProduct from "@/app/ListItem/[id]/page";
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { fetchDataSingProd } from "@/services/api";
 import { Product } from "@/types/interfaces";
-import SingleProductRender from "@/components/ListItem/single-product-render";
 
 jest.mock('@/services/api', () => ({
     fetchDataSingProd: jest.fn(),
@@ -41,13 +40,12 @@ describe('Testing SingleProduct', () => {
     });
 
     test('Render Product detil and send to componen', async () => {
-    const { findByTestId } = render(
-      await SingleProduct({ params: Promise.resolve({ id: '4' }) }) as any
-    );
+        const Wrapper = await SingleProduct({ params: Promise.resolve({ id: '4' }) });
+        const { findByTestId } = render(Wrapper);
 
-     expect(await findByTestId('navbar')).toBeInTheDocument();
-    expect(await findByTestId('product-render')).toHaveTextContent('Jacket Dude');
-    expect(fetchDataSingProd).toHaveBeenCalledWith('4');
+        expect(await findByTestId('navbar')).toBeInTheDocument();
+        expect(await findByTestId('product-render')).toHaveTextContent('Jacket Dude');
+        expect(fetchDataSingProd).toHaveBeenCalledWith('4');
     })
 })
 
