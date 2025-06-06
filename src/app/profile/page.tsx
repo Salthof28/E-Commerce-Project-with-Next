@@ -24,7 +24,7 @@ export default function Profile () {
                         <div className="flex max-lg:justify-center flex-row lg:flex-col gap-[1rem] md:gap-[2rem] lg:gap-[0.5rem] xl:gap-[1rem] border-b-[0.1rem] p-[0.1rem] xl:p-[1rem]">
                             <div className="flex flex-row items-center gap-[0.2rem] md:gap-[0.5rem]">
                                 <div className="bg-amber-50 rounded-[50%] p-[0.2rem]"><User className="w-[0.8rem] md:w-[1.3rem] xl:w-[1.5rem] h-[0.8rem] md:h-[1.3rem] xl:h-[1.5rem]" /></div>
-                                <p className="text-[0.6rem] md:text-[1rem] xl:text-[1.2rem]">{session?.user?.name}</p>
+                                <p data-testid='userName' className="text-[0.6rem] md:text-[1rem] xl:text-[1.2rem]">{session?.user?.name}</p>
                             </div>
                             <div className="flex flex-row items-center gap-[0.2rem] md:gap-[0.5rem]">
                                 <div className="bg-amber-50 rounded-[50%] p-[0.2rem]"><Mail className="w-[0.8rem] md:w-[1.3rem] xl:w-[1.5rem] h-[0.8rem] md:h-[1.3rem] xl:h-[1.5rem]" /></div>
