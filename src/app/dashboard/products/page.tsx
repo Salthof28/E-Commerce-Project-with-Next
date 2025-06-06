@@ -3,14 +3,8 @@ import { fetchDataCat, fetchDataProdPag, CountLengDataProd } from "@/services/ap
 import ProductHandlePageClient from "./ListProductClient";
 
 // ISR Configuration
-export const revalidate = 300; // 5 minutes
+export const revalidate = 60; 
 
-// interface ProductsPageProps {
-//   searchParams: {
-//     page?: string;
-//     search?: string;
-//   }
-// }
 
 export default async function ProductHandlePage() {
     const currentPage = 1;

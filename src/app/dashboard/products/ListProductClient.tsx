@@ -53,20 +53,6 @@ export default function ProductHandlePageClient ({ initialData }: ProductsClient
             console.log(`Error: ${error}`)
         }
     }
-    // update url param for update fetching
-    // const updateURL = (page: number, searchTerm: string) => {
-    //     const params = new URLSearchParams();
-    //     if(page > 1) params.set('page', page.toString());
-    //     if(searchTerm !== "") params.set('search', searchTerm);
-
-    //     const url = params.toString() ? `dashboard/products?page=${page}&search=${searchTerm}` : 'dashboard/products';
-    //     // router.push(url, { scroll: false });
-    //     // console.log(url);
-    // }
-    // useEffect (() => {
-    //     fetchDataProducts(currentPage);
-    // }, []);
-    // process search
     const handleSearch = (e: React.FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
         setCurrentPage(1);
