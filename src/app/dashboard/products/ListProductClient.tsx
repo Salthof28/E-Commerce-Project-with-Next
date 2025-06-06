@@ -58,7 +58,7 @@ export default function ProductHandlePageClient ({ initialData }: ProductsClient
         setCurrentPage(1);
         fetchDataProducts(currentPage);
     }
-    // console.log(currentProduct);
+
     const calculateVisiblePages = () => {
         // number page you want to show
         const pageWantDisplay: number = 5;
@@ -148,7 +148,7 @@ export default function ProductHandlePageClient ({ initialData }: ProductsClient
                 <section className="flex flex-col w-[100%] lg:w-[85%] p-[2rem] text-[rgb(240,230,226)] items-center px-[0.5rem] md:px-[2rem] xl:px-[4rem] 2xl:px-[20rem] gap-[1rem]">
                     {/* title and btn add product section */}
                     <section className="flex flex-row justify-between w-full">
-                        <h1 className="text-[1rem] md:text-[1.5rem] xl:text-[2rem] font-bold">Page Products</h1>
+                        <h1 className="text-[1rem] md:text-[1.5rem] xl:text-[2rem] font-bold">Page Handle Products</h1>
                         <button onClick={() => showFormProduct()} className="flex flex-row gap-[0.2rem] items-center text-[0.8rem] xl:text-[1rem] bg-emerald-500 p-[0.2rem] md:p-[0.4rem] rounded-[0.5rem]"><Plus className="w-[1rem] h-[1rem] xl:w-[1.2rem] xl:h-[1.2rem]" />Add Product</button>
                     </section>
                     {/* form search */}
