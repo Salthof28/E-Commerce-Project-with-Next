@@ -1,13 +1,17 @@
 import Register from "@/app/register/page";
 import { fetchUsers } from "@/services/api";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { useSession } from "next-auth/react";
 
-jest.mock('@/hooks/useAuthCustomer', () => () => ({
-    router: {
-        push: jest.fn(),
-        refresh: jest.fn(),
-    },
-    session: null,
+// jest.mock('@/hooks/useAuthCustomer', () => () => ({
+//     router: {
+//         push: jest.fn(),
+//         refresh: jest.fn(),
+//     },
+//     session: null,
+// }));
+jest.mock('next-auth/react', () => ({
+    useSession: jest.fn(),
 }));
 
 jest.mock('@/services/api', () => ({
@@ -19,10 +23,19 @@ jest.mock('@/components/navbar', () => {
   MockNavbar.displayName = 'MockNavbar';
   return MockNavbar
 });
+jest.mock('next/navigation', () => ({
+    useRouter: () => ({
+        push: jest.fn(),
+    }),
+}));
 
 describe('Testing Register', () => {
     beforeEach(() => {
         jest.clearAllMocks();
+        (useSession as jest.Mock).mockReturnValue({
+            data: null,
+            status: 'unauthenticated',
+        });
     })
 
     test('render all component', () => {

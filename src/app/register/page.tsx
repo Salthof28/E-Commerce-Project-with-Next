@@ -6,13 +6,22 @@ import { Users } from "@/types/interfaces";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { fetchUsers } from "@/services/api";
-import useAuthCustomer from "@/hooks/useAuthCustomer";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export default function Register () {
+    const { data: session, status } = useSession();
     const [statusCreated, setStatusCreated] = useState<string>("Processing...");
     const [loading, setLoading] = useState<boolean>(false);
-    // const router = useRouter();
-    const { router } = useAuthCustomer();
+    const router = useRouter();
+    // const { router } = useAuthCustomer();
+    useEffect(() => {
+        if (status === "unauthenticated") {
+        router.push("/register");
+        } else if (session?.user?.role === "customer") {
+        router.push("/profile");
+        }
+    }, [status, session, router]);
 
     useEffect(() => {
         const timeProcess = setTimeout (() => {
