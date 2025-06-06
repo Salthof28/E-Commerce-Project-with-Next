@@ -75,7 +75,7 @@ export default function Dashboard () {
                                     <p className="text-[0.6rem] md:text-[0.8rem] xl:text-[1rem] font-bold">{item.Total} Product</p>
                                 </div>
                                 <div className="bg-gray-200 w-full h-[0.5rem] rounded-[0.5rem]">
-                                    <div className={`bg-emerald-600 h-[0.5rem] rounded-[0.5rem]`} style={{ width: `${persentaseProduct(item.Total)}%` }}></div>
+                                    <div data-testid='progressbar' className={`bg-emerald-600 h-[0.5rem] rounded-[0.5rem]`} style={{ width: `${persentaseProduct(item.Total)}%` }}></div>
                                 </div>
                             </div>
                             ))}
