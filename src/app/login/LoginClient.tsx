@@ -10,7 +10,6 @@ interface LoginClientProps {
     initialLoading: boolean
 }
 export default function LoginClient ({ initialLoading }: LoginClientProps) {
-    // const router: AppRouterInstance = useRouter();
     const { router } = useAuthCustomer();
     const searchParams = useSearchParams();
     const redirect = searchParams.get('redirect') || ('/dashboard');

@@ -10,7 +10,7 @@ declare module "next-auth" {
         email?: string;
         password?: string;
         avatar?: string;
-        role?: string; // tambahkan role di sini
+        role?: string;
         } & DefaultSession["user"];
     };
     interface User {

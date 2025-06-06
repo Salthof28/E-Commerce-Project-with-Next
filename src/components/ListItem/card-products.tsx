@@ -35,5 +35,3 @@ export default function CardProduct ({ product, handleRouter }: CardProductProps
     );
 };
 
-// export default CardProduct;
-

@@ -3,13 +3,6 @@ import { fetchUsers } from "@/services/api";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { useSession } from "next-auth/react";
 
-// jest.mock('@/hooks/useAuthCustomer', () => () => ({
-//     router: {
-//         push: jest.fn(),
-//         refresh: jest.fn(),
-//     },
-//     session: null,
-// }));
 jest.mock('next-auth/react', () => ({
     useSession: jest.fn(),
 }));

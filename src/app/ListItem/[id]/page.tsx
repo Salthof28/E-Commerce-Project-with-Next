@@ -8,11 +8,8 @@ interface Params {
 }
 export const dynamic = 'force-dynamic';
 export default async function SingleProduct ({ params }: Params ) {
-    // const { id } = params;
     const resolvedParams = await params;
     const id = resolvedParams.id;
-    // const id = params.id;
-    // const response: Product = await fetchDataSingProd(id);
     const product: Product = await fetchDataSingProd(id);
     const images: string[] = product.images;
     return (

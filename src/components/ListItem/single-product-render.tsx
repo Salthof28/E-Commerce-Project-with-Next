@@ -26,11 +26,8 @@ export default function SingleProductRender ( { product, images }: SingleProduct
         decReaseItem(product);
     }
     useEffect(() => {
-        // console.log(cart);
         const filterProduct: CartItem[] = cart.filter(item => item.product.id === product.id);
-        setTotalCheckout(filterProduct.length > 0 ? filterProduct[0].quantity : 0);
-        // console.log(cart);
-        
+        setTotalCheckout(filterProduct.length > 0 ? filterProduct[0].quantity : 0);  
     }, [cart]);
 
     return (

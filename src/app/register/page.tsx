@@ -14,7 +14,6 @@ export default function Register () {
     const [statusCreated, setStatusCreated] = useState<string>("Processing...");
     const [loading, setLoading] = useState<boolean>(false);
     const router = useRouter();
-    // const { router } = useAuthCustomer();
     useEffect(() => {
         if (status === "unauthenticated") {
         router.push("/register");

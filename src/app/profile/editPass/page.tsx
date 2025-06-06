@@ -5,7 +5,6 @@ import Navbar from "@/components/navbar";
 import React, { useState, useEffect } from "react";
 
 export default function EditPass () {
-    // const { data: session } = useSession();
     // custom hook customer authenticated
     const { session, router } = useAuthCustomer()
     const [statusEdit, setStatusEdit] = useState<string>("Processing ....");
@@ -14,7 +13,6 @@ export default function EditPass () {
         oldPassword: "",
         newPassword: "",
     })
-    // const router = useRouter();
     // delay process edit data
     useEffect(() => {
         const timeProcess = setTimeout (() => {

@@ -54,9 +54,6 @@ export default function UsersHandleCliens ({ initialData }: UsersHandleCliensPro
             console.log(`Error: ${error}`)
         }
     }
-    // useEffect (() => {
-    //     fetchDataUsers();
-    // }, []);
     useEffect (() => {
         handlePageChange(currentPage);
     }, [currentPage, allUsers]);
@@ -72,9 +69,7 @@ export default function UsersHandleCliens ({ initialData }: UsersHandleCliensPro
         e.preventDefault();
         setCurrentPage(1);
         handlePageChange(currentPage);
-        // fetchDataUsers();
     }
-    // console.log(currentProduct);
     const calculateVisiblePages = () => {
         // number page you want to show
         const pageWantDisplay: number = 5;

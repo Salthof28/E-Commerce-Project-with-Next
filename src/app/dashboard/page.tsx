@@ -14,8 +14,7 @@ export default function Dashboard () {
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string>('');
 
-     // variabel paganation page
-
+    // variabel paganation page
     const [totalPoduct, setTotalProduct] = useState<number>(0);
     
     
