@@ -1,55 +1,93 @@
 # Milestone-3
 
 ## Overview
-This is a modern e-commerce website built with **Next.js** that allows users to easily browse, search, and filter products by categories. Users can view detailed information about each product and manage their shopping cart by adding or removing items with a smooth and responsive user experience.
+This is a modern e-commerce website built with **Next.js** that allows users to easily browse, search, and filter products by categories. Users can view detailed information about each product and manage their shopping cart by adding or removing items with a smooth and responsive user experience while admins manage product inventory and user profiles via a protected dashboard (middleware).
 
 ## Features Implemented
-- **Next.js Routing & Navigation**
-  - File-based routing with dynamic route pages (e.g., `[id].tsx`)
-  - Client-side navigation using `Link` from `next/link`
-  - Dynamic route parameter handling for product details
-  - Navigation between pages without full reloads for seamless UX
+### 🧭 Public Features
+- Homepage with category highlights
+- Product listing with search and pagination
+- Product detail page
+- Shopping cart with quantity update
+- Checkout page
 
-- **Data Fetching**
-  - Static Site Generation (SSG) with `getStaticProps()`
-  - Server-Side Rendering (SSR) with `getServerSideProps()`
-  - Client-side data fetching with `useEffect()` and Fetch API
-  - Robust error handling and loading states management during data fetching
+### 🔐 Authentication – NextAuth.js
+- Credential-based login (email + password)
+- Role-based redirect:
+  - `Customer` → `/profile`
+  - `Admin` → `/dashboard`
+- Session stored in cookies
 
-- **UI & State Management**
-  - Clean and reusable React components with JSX syntax
-  - State management using `useState` and side effects with `useEffect`
-  - Passing and handling props effectively across components
+### 👨‍💼 Admin Features
+- Add, delete, and edit **products**
+- View and edit **users**
+- Admin-only access via middleware
 
-- **Additional Features**
-  - Product listing with category filters
-  - Search functionality for products
-  - Shopping cart management with add, remove, and quantity adjustment
+### 👤 Customer Profile
+- View personal info (email & name)
+- Update profile data and change password
+- Access restricted to `role: customer`
+
+### 🛒 Shopping Cart
+- Add/remove items
+- Quantity update
+- Stored in localStorage using Context API
+
+---
 
 ## Technologies Used
-- **Next.js** — React framework for server-side rendering and static site generation
-- **React** — UI library with hooks for state and lifecycle management
-- **TypeScript** — Type-safe JavaScript for robust development
-- **Tailwind CSS** — Utility-first CSS framework for rapid styling
-- **Fetch API** — Native web API for data fetching
+- 🧩 **Next.js** (App Router)
+- 🛠️ **TypeScript**
+- 🎨 **Tailwind CSS**
+- 🔐 **NextAuth.js** (Credential provider)
+- 💾 **Fetch API** (external REST API)
+- 🧠 **Context API** for cart state
+
+## 🔐 Roles & Redirect Flow
+
+| Role     | After Login Redirect | Access to Dashboard | Access to Profile |
+|----------|----------------------|----------------------|-------------------|
+| Customer | `/profile`           | ❌                   | ✅                |
+| Admin    | `/dashboard`         | ✅                   | ❌                |
+
+## 🧪 Test Demo Accounts
+
+### Admin
+Email: admin@example.com <br>
+Password: admin123
+### Customer
+Email: john@mail.com <br>
+Password: changeme
+### You Can Get For Other Users at:
+Link api: https://api.escuelajs.co/api/v1/users 
+
+## 🖼️ Screenshots
+
+| Page                         | Preview                                                 |
+|------------------------------|----------------------------------------------------------|
+| Home Page                    | ![](./public/imgReadme/Home.png) ![](./public/imgReadme/HomeCat.png)                      |
+| Shop Page                    | ![](./public/imgReadme/ShopPage.png)                      |
+| Product Detail Page          | ![](./public/imgReadme/ProductDetailPage.png)            |
+| Checkout Page                | ![](./public/imgReadme/CheckOutPage.png)                 |
+| Login Page                   | ![](./public/imgReadme/LoginPage.png)                    |
+| Profile Page (Customer)      | ![](./public/imgReadme/ProfileCustomer.png)         |
+| Admin Dashboard              | ![](./public/imgReadme/DashboardAdmin.png)                 |
+| Admin - Product Management   | ![](./public/imgReadme/ListProductAdmin.png)            |
+| Admin - User Management      | ![](./public/imgReadme/PageHandleUsers.png)          |
 
 ## Demo
 
 **Live Demo:** [deShopper](https://e-commerce-project-with-next.vercel.app/)
 
-## 📜 How to Use
-1. clone this repository:
-```sh
+## 🧑‍💻 Getting Started
+
+```bash
 git clone https://github.com/revou-fsse-feb25/milestone-3-Salthof28.git
-```
-2. Install next and run project
-```sh
 cd milestone-3
 npm install
-npm run build
-npm start
+npm run dev
 ```
 
 ## Author
-:bulb: Salman Althof
+🔧 Salman Althof
 
